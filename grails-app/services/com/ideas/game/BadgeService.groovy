@@ -22,6 +22,6 @@ class BadgeService {
         }
         userBadge.points+=points;
 
-        userBadge.save(flush: true,  failOnError: true)
+        userBadge.save(flush: true,  failOnError: true);
     }
 }
