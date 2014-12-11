@@ -2,7 +2,7 @@
 <html>
 
         <head>
-		<meta name="layout" content="main"/>
+		<meta name="layout" content="main"/>		
 		<title>IDeaS Rock Stars</title>
                 <script type="text/Javascript">
 

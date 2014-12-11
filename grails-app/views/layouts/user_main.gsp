@@ -11,7 +11,7 @@
 		    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		    <meta name="description" content="IDeaS Rock Star"/>
 		    <meta name="author" content="IDeaSLabs"/>
-		    
+		    <meta http-equiv="refresh" content="900">
 		    <title>IDeaS Rock Star</title>
 			<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
 
