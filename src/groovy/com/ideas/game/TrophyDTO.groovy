@@ -10,9 +10,10 @@ package com.ideas.game
  * @author idnasr
  */
 class TrophyDTO {
-	String fromUserEmailID
+	    String fromUserEmailID
         String toUserEmailID
         int trohpies
         String reason
+        Badge badge
 }
 

@@ -36,6 +36,9 @@ class AddUserToSessionFilters {
                         MissionService missionService = new MissionService();
                         session.openMission =
                                 missionService.getOpenMissions();
+
+                        BadgeService badgeService = new BadgeService()
+                        session.badges = badgeService.listNonEvilBadges();
                 }
             }
         }

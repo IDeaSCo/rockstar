@@ -107,6 +107,11 @@
                                         <g:else>
                                              <input type="hidden" class="form-control" placeholder="Type in no of stars..." name="trohpies" id="trohpies" value="1"/>
                                         </g:else>
+                                        <g:select id="badgeId" name="badgeId"
+                                                  noSelection="${['-1':'Select One Category...']}"
+                                                  from="${session.badges}"
+                                                  optionValue="badgeName"
+                                                  optionKey="id" />
 	                                  </div>
 	                                  <div class="modal-footer">
 	                                    <button type="button" class="btn btn-default" data-dismiss="modal">Changed my mind</button>
@@ -463,6 +468,9 @@
         var emailIDContent =document.getElementById("toUserEmailID").value;
         var reason =document.getElementById("reason").value;
 
+        var badgeId =document.getElementById("badgeId").value;
+
+
         if(emailIDContent.trim().length < 1) {
             alert("EmailID is mandatory.")
             return false;
@@ -473,6 +481,10 @@
         }
         if(!isNumber(document.getElementById("trohpies").value)) {
             window.alert("Number of Stars should be a valid number.")
+            return false;
+        }
+        if(badgeId == -1){
+            alert("Badge is mandatory.")
             return false;
         }
 

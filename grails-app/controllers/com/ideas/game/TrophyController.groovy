@@ -14,15 +14,19 @@ class TrophyController {
             trophyService.saveTrophies(trophyDTO)
         }else{
 
-            trophyDTO.reason="Attempt at cheating the system from IP:"+request.getRemoteAddr()
-            println trophyDTO.reason;
-            trophyDTO.trohpies = -100;
-            if(session.userInfo != null){
-                trophyDTO.fromUserEmailID = session.userInfo.getEmail();
-                trophyDTO.toUserEmailID = session.userInfo.getEmail();
-                trophyService.saveTrophies(trophyDTO);
-            }
+            if(trophyDTO.trohpies != null ) {
+                trophyDTO.reason = "Attempt at cheating the system from IP:" + request.getRemoteAddr()
+                println trophyDTO.reason;
+                trophyDTO.trohpies = -100;
+                if (session.userInfo != null) {
+                    trophyDTO.fromUserEmailID = session.userInfo.getEmail();
+                    trophyDTO.toUserEmailID = session.userInfo.getEmail();
+                    trophyDTO.badge = Badge.findByBadgeName("Cheater")
+                    trophyService.saveTrophies(trophyDTO);
 
+
+                }
+            }
         }
 
         render "0"
@@ -64,8 +68,9 @@ class TrophyController {
             trophyDTO.toUserEmailID = params.toUserEmailID;
             trophyDTO.trohpies = params.trohpies.toInteger();
             trophyDTO.reason = params.reason;
-
+            trophyDTO.badge = Badge.findById(params.badgeId)
             trophyService.saveTrophies(trophyDTO)
+
         }
         redirect(uri: "/user")
     }

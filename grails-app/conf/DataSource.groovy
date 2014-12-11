@@ -14,19 +14,19 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost:3306/game?autoReconnect=true"
+            url = "jdbc:mysql://localhost:3309/game?autoReconnect=true"
         }
     }
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost:3306/game?autoReconnect=true"
+            url = "jdbc:mysql://localhost:3309/game?autoReconnect=true"
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost:3306/game?autoReconnect=true"
+            url = "jdbc:mysql://localhost:3309/game?autoReconnect=true"
             pooled = true
             properties {
                maxActive = -1

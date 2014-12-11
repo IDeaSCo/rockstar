@@ -35,7 +35,10 @@ class TrophyService  {
         
         toUser.setTrophies(toUser.getTrophies()+trophyDTO.getTrohpies());
         toUser.save(flush: true,  failOnError: true)
-        
+
+        BadgeService badgeService = new BadgeService();
+        badgeService.updateUserBadePoints(toUser,trophyDTO.badge,trophyDTO.getTrohpies())
+
     }
     
 
