@@ -11,6 +11,9 @@ grails.config.base.webXml = "file:${basedir}/grails-app/conf/web_custom.xml" // 
 //grails.project.fork = [
 //   run: [maxMemory:1024, minMemory:64, debug:false, maxPerm:256]
 //]
+grails.war.resources = { stagingDir, args ->
+    copy(file: "lib/com4j-amd64.dll",tofile: "${stagingDir}/WEB-INF/lib/com4j-amd64.dll")
+}
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
