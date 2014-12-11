@@ -53,4 +53,10 @@ class User {
         return badge ;
     }
 
+    String getUserImage(){
+        return "http://sww.sas.com/sww/tools/phonelist/photos/"+accountName.toLowerCase()+".jpg";
+    }
+    String getNoImage(){
+        return "http://sww.sas.com/iss-images/nophoto.jpg";
+    }
 }

@@ -68,7 +68,7 @@
                             <div class="col-lg-4 col-sm-4 profile-widget-name">
                               <h4>${session?.userInfo?.getName()}</h4>               
                               <div class="follow-ava">
-                                  <img src="http://sww.sas.com/sww/tools/phonelist/photos/${session?.userInfo?.getAccountName().toLowerCase()}.jpg" alt="" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';">
+                                  <img src="${session?.userInfo?.getUserImage()}" alt="" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                   
                               </div>
                               <h6>${session?.userInfo?.getTitle()}</h6>
@@ -180,7 +180,7 @@
                                   </td>-->
                                   <td style="width:10px;">
                                     <span >
-                                        <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first()).getAccountName().toLowerCase()}.jpg" height="35" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';">
+                                        <img alt="" class="simple" src="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first()).getUserImage()}" height="35" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                         <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                         
                                     </span>
@@ -236,7 +236,7 @@
                                        </td>-->
                                        <td style="width:10px;">
                                          <span >
-                                             <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getAccountName().toLowerCase()}.jpg" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';" height="35">
+                                             <img alt="" class="simple" src="${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="35">
                                              <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                          </span>
                                        </td>
@@ -290,7 +290,7 @@
                                       </td>-->
                                       <td style="width:10px;">
                                         <span >
-                                            <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getAccountName().toLowerCase()}.jpg" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';" height="35">
+                                            <img alt="" class="simple" src="${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="35">
                                             <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                         </span>
                                       </td>
@@ -342,7 +342,7 @@
                                           </td>-->
                                           <td style="width:10px;">
                                             <span >
-                                            <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${user.getAccountName().toLowerCase()}.jpg" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';" height="40">
+                                            <img alt="" class="simple" src="${user.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="40">
                                             <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
                                             </span>
                                           </td>
@@ -386,7 +386,7 @@
 
                                       <td style="width:10px;">
                                         <span >
-                                        <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${history.get(2).getAccountName().toLowerCase()}.jpg" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';" height="40">
+                                        <img alt="" class="simple" src="${history.get(2).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="40">
                                         </span>
                                       </td>
                                       <td style="text-align:left">
@@ -407,7 +407,7 @@
                         <!--comment1-->
                         <div class="panel panel-primary">
 
-                              <div class="panel-heading" style="padding:5px;"><img  alt="" src="http://sww.sas.com/sww/tools/phonelist/photos/${history.get(2).getAccountName().toLowerCase()}.jpg" height="35" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';"> ${history.get(2).getName()} gave you  <button class="btn btn-default" disabled> <g:if test="${history?.get(0) > 0}"> <i class="fa fa-thumbs-up"> </g:if><g:else> <i class="fa fa-thumbs-down"> </g:else></i></button> ${history.get(0)} trophies on ${history.get(3)}</div>
+                              <div class="panel-heading" style="padding:5px;"><img  alt="" src="${history.get(2).getUserImage()}" height="35" onError="this.src='${session?.userInfo?.getNoImage()}';"> ${history.get(2).getName()} gave you  <button class="btn btn-default" disabled> <g:if test="${history?.get(0) > 0}"> <i class="fa fa-thumbs-up"> </g:if><g:else> <i class="fa fa-thumbs-down"> </g:else></i></button> ${history.get(0)} trophies on ${history.get(3)}</div>
 
                               <div class="panel-body">
                                 ${history.get(1)}

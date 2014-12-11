@@ -52,7 +52,7 @@
 
 				    <span class="profile-ava">
 
-					    <img alt="" src="http://sww.sas.com/sww/tools/phonelist/photos/${session?.userInfo?.getAccountName().toLowerCase()}.jpg" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';" height="35">
+					    <img alt="" src="${session?.userInfo?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="35">
 					    <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${session?.userInfo?.getUserBadge()}</span>
 				        </span>
 				        <span class="username"><a href="user" >${session?.userInfo?.getName()}</a>
@@ -94,7 +94,7 @@
                               <section class="panel">
                                <div id="mainwinner">
                                  <g:if test="${session?.starOfTheDayMap?.size() > 0}">
-                                   <div style="width:75px;"> <img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="http://sww.sas.com/sww/tools/phonelist/photos/${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.getAccountName()?.toLowerCase()}.jpg" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';"> 
+                                   <div style="width:75px;"> <img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                    	<span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserBadge()}</span>
                                    </div>
                                    
@@ -115,7 +115,7 @@
                                           </td>-->
                                           <td style="width:10px;">
                                             <span >
-                                            <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${user.getAccountName().toLowerCase()}.jpg" height="40" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';">
+                                            <img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                             <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
                                             </span>
                                           </td>
@@ -162,7 +162,7 @@
                               <section class="panel">
                                <div id="mainwinner">
                                  <g:if test="${session?.starOfTheWeekMap?.size() > 0}">
-                                   <div style="width:75px;"> <img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="http://sww.sas.com/sww/tools/phonelist/photos/${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getAccountName().toLowerCase()}.jpg" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';"> 
+                                   <div style="width:75px;"> <img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                    <span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                    </div>
                                    <div style="padding-left:20px;"> <p class="profile-name">${session?.starOfTheWeekMap?.keySet().toList().first().getName()}</p> <p class="profile-occupation"> ${session?.starOfTheWeekMap?.keySet()?.toList()?.first().getTitle()}</p></div>
@@ -182,7 +182,7 @@
                                       </td>-->
                                       <td style="width:10px;">
                                         <span >
-                                        <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${user.getAccountName().toLowerCase()}.jpg" height="40" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';">
+                                        <img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                         <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
                                         </span>
                                       </td>
@@ -229,7 +229,7 @@
                               <section class="panel">
                                <div id="mainwinner">
                                  <g:if test="${session?.starOfTheMonthMap?.size() > 0}">
-                                   <div style="width:75px;"> <img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="http://sww.sas.com/sww/tools/phonelist/photos/${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getAccountName().toLowerCase()}.jpg" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';"> 
+                                   <div style="width:75px;"> <img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                    <span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                    </div>
                                    <div style="padding-left:20px;"> <p class="profile-name">${session?.starOfTheMonthMap?.keySet().toList().first().getName()}</p> <p class="profile-occupation"> ${session?.starOfTheWeekMap?.keySet()?.toList()?.first()?.getTitle()}</p></div>
@@ -249,7 +249,7 @@
                                       </td>-->
                                       <td style="width:10px;">
                                         <span >
-                                        <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${user.getAccountName().toLowerCase()}.jpg" height="40" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';">
+                                        <img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                         <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
                                         </span>
                                       </td>
@@ -305,7 +305,7 @@
 						  </td>-->
 						  <td style="width:10px;">
 						    <span >
-							<img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${user.getAccountName().toLowerCase()}.jpg" height="40" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';">							
+							<img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
 							<span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
 						    </span>
 						  </td>
@@ -359,7 +359,7 @@
                                                       </td>-->
                                                       <td style="width:10px;">
                                                         <span >
-                                                        <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${user.getAccountName().toLowerCase()}.jpg" height="40" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';">
+                                                        <img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                                         <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
                                                         </span>
                                                       </td>
@@ -412,7 +412,7 @@
                                                                     </td>-->
                                                                     <td style="width:10px;">
                                                                       <span >
-                                                                      <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${mission.get(0).toLowerCase()}.jpg" height="40" onError="this.src='http://sww.sas.com/iss-images/nophoto.jpg';">
+                                                                      <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${mission.get(0).toLowerCase()}.jpg" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                                                       </span>
                                                                     </td>
                                                                     <td>
