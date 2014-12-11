@@ -412,7 +412,7 @@
                                                                     </td>-->
                                                                     <td style="width:10px;">
                                                                       <span >
-                                                                      <img alt="" class="simple" src="http://sww.sas.com/sww/tools/phonelist/photos/${mission.get(0).toLowerCase()}.jpg" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
+                                                                      <img alt="" class="simple" src="${mission.get(0)}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                                                       </span>
                                                                     </td>
                                                                     <td>

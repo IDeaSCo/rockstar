@@ -32,7 +32,7 @@ class MissionService {
         List list = Mission.findAll("from Mission where status=1 order by trophies desc");
         list.each(){
             def individualMission = [];
-            individualMission.add(it.creator.accountName);
+            individualMission.add(it.creator.getUserImage());
             individualMission.add(it.creator.getName());
             individualMission.add(it.missionStatement);
             individualMission.add(it.trophies);
