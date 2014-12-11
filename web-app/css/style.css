@@ -11,8 +11,8 @@ Website: http://geekslabs.com/
 
 body {
     color: #797979;
-    background: #eeeeee;
-    background-image: url('../img/mars1.jpg');
+    background: gainsboro;
+    /*background-image: url('../img/mars1.jpg');*/
     background-size: cover;
     font-family: 'Lato', sans-serif;
     padding: 0px !important;
@@ -251,7 +251,7 @@ table tr th { color: #007AFF;}
 /*Modal Content*/
 .modal-content{
     border-radius:0px;
-    background:rgba(255,255,255,0.9);
+    background:rgba(255,255,255);
 }
 .modal-header .close{
     font-weight: 300;
@@ -1365,6 +1365,7 @@ ul.ft-link li a i {
     display: block;
     width: 100%;
     height: auto;
+   
 }
 
 .owl-buttons {
@@ -4067,4 +4068,55 @@ span.customSelect.changed {
 #commentsDiv{
  margin-left: 120px;
     background-color: #222;
+}
+
+ 
+.container
+{
+   
+}
+
+#fixed
+{
+  width: 300px;
+  background: white;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  text-align: center;
+  padding-top: 30px;
+  height: 100%;
+}
+
+#fixed .badge-icon {
+float:left;
+width: 20%;
+top: 15px;
+position: relative;
+}
+
+#fixed .badge-leader {
+float:left;
+width: 80%
+}
+
+#fluid
+{
+background: gainsboro;
+position: absolute;
+left: 300px;
+margin-top: 60px;
+    height: 100%;
+}
+
+hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #222222 -moz-use-text-color #FFFFFF;
+  border-style: solid none;
+  border-width: 1px 0;
+  margin: 18px 0;
 }

@@ -6,7 +6,7 @@ class TrohpyHistory {
     Date date;
     int trophies;
     User trophiesGivenBy;
-    
+    Badge badge
     
     static constraints = {
     }

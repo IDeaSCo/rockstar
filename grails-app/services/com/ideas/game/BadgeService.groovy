@@ -24,4 +24,14 @@ class BadgeService {
 
         userBadge.save(flush: true,  failOnError: true);
     }
+
+    public def getBadgeLeaderBoard(){
+        def badgeMap = [:]
+        def badges = Badge.findAll();
+        badges.each {
+            def listOfUsers = UserBadges.findAllByBadge(it, [max: 3, sort: "points", order: "desc"]);
+            badgeMap.put(it,listOfUsers)
+        }
+        return badgeMap;
+    }
 }

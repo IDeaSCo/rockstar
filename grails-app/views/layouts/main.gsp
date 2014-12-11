@@ -64,7 +64,10 @@
 
 		  </div>
 	      </header>
-
+<!--container starts-->
+<div class="container">
+<!--right side content starts-->
+<div id="fluid" class="col-lg-9">
       <section id="main-content">
           <section class="wrapper">
               <!--overview start-->
@@ -98,8 +101,8 @@
                                    	<span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserBadge()}</span>
                                    </div>
                                    
-                                   <div style="padding-left:0px;"> <p class="profile-name">${session?.starOfTheDayMap?.keySet()?.toList()?.first()?.getName()}</p> <p class="profile-occupation"> ${session?.starOfTheDayMap?.keySet()?.toList()?.first()?.getTitle()}</p></div>
-                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:50px">${session?.starOfTheDayMap?.get(session?.starOfTheDayMap?.keySet()?.toList()?.first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
+                                   <div style="padding-left:0px;"> <p class="profile-name">${session?.starOfTheDayMap?.keySet()?.toList()?.first()?.getName()}</p> </div>
+                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:30px">${session?.starOfTheDayMap?.get(session?.starOfTheDayMap?.keySet()?.toList()?.first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
                                  </g:if>
  
                                 </div>
@@ -121,10 +124,9 @@
                                           </td>
                                           <td>
                                               <p class="profile-name">${user.getName()}</p>
-                                              <p class="profile-occupation">${user.getTitle()}</p>
                                           </td>
                                           <td>
-                                              <span class="badge bg-info">${session?.starOfTheDayMap?.get(user)}</span>
+                                              <span class="badge bg-info" style="font-size:20px">${session?.starOfTheDayMap?.get(user)}</span>
                                               <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
                                           </td>
                                           </tr>
@@ -165,8 +167,8 @@
                                    <div style="width:75px;"> <img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                    <span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                    </div>
-                                   <div style="padding-left:20px;"> <p class="profile-name">${session?.starOfTheWeekMap?.keySet().toList().first().getName()}</p> <p class="profile-occupation"> ${session?.starOfTheWeekMap?.keySet()?.toList()?.first().getTitle()}</p></div>
-                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:50px">${session?.starOfTheWeekMap?.get(session?.starOfTheWeekMap?.keySet().toList().first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
+                                   <div style="padding-left:20px;"> <p class="profile-name">${session?.starOfTheWeekMap?.keySet().toList().first().getName()}</p> </div>
+                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:30px">${session?.starOfTheWeekMap?.get(session?.starOfTheWeekMap?.keySet().toList().first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
                                  </g:if>
                                 </div>
 
@@ -188,10 +190,9 @@
                                       </td>
                                       <td>
                                           <p class="profile-name">${user.getName()}</p>
-                                          <p class="profile-occupation">${user.getTitle()}</p>
                                       </td>
                                       <td>
-                                          <span class="badge bg-info">${session?.starOfTheWeekMap?.get(user)}</span>
+                                          <span class="badge bg-info" style="font-size:20px">${session?.starOfTheWeekMap?.get(user)}</span>
                                          <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
                                       </td>
                                       </tr>
@@ -232,8 +233,8 @@
                                    <div style="width:75px;"> <img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';">
                                    <span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                    </div>
-                                   <div style="padding-left:20px;"> <p class="profile-name">${session?.starOfTheMonthMap?.keySet().toList().first().getName()}</p> <p class="profile-occupation"> ${session?.starOfTheWeekMap?.keySet()?.toList()?.first()?.getTitle()}</p></div>
-                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:50px">${session?.starOfTheMonthMap?.get(session?.starOfTheMonthMap?.keySet().toList().first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
+                                   <div style="padding-left:20px;"> <p class="profile-name">${session?.starOfTheMonthMap?.keySet().toList().first().getName()}</p> </div>
+                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:30px">${session?.starOfTheMonthMap?.get(session?.starOfTheMonthMap?.keySet().toList().first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
                                  </g:if>
                                 </div>
 
@@ -255,10 +256,10 @@
                                       </td>
                                       <td style="width:190px;">
                                           <p class="profile-name">${user.getName()}</p>
-                                          <p class="profile-occupation">${user.getTitle()}</p>
+
                                       </td>
                                       <td>
-                                          <span class="badge bg-info">${session?.starOfTheMonthMap?.get(user)}</span>
+                                          <span class="badge bg-info" style="font-size:20px">${session?.starOfTheMonthMap?.get(user)}</span>
                                          <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
                                       </td>
                                       </tr>
@@ -311,10 +312,10 @@
 						  </td>
 						  <td>
 						      <p class="profile-name">${user.getName()}</p>
-						      <p class="profile-occupation">${user.getTitle()}</p>
+
 						  </td>
 						  <td>
-						      <span class="badge bg-info">${session?.starMap?.get(user)}</span>
+						      <span class="badge bg-info" style="font-size:20px">${session?.starMap?.get(user)}</span>
 						     <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
 						  </td>
 					      </tr>
@@ -365,10 +366,10 @@
                                                       </td>
                                                       <td>
                                                           <p class="profile-name">${user.getName()}</p>
-                                                          <p class="profile-occupation">${user.getTitle()}</p>
+
                                                       </td>
                                                       <td>
-                                                          <span class="badge bg-info">${session?.appreciatorMap?.get(user)}</span>
+                                                          <span class="badge bg-info" style="font-size:20px">${session?.appreciatorMap?.get(user)}</span>
                                                           <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
                                                       </td>
                                                       </tr>
@@ -420,7 +421,7 @@
                                                                         <p class="profile-name" >${mission.get(2)}</p>
                                                                     </td>
                                                                     <td>
-                                                                        <span class="badge bg-info">${mission.get(3)}</span>
+                                                                        <span class="badge bg-info" style="font-size:20px">${mission.get(3)}</span>
                                                                         <i style="color:blue;" class="fa fa-star"></i>
                                                                     </td>
                                                                     <td>
@@ -453,6 +454,34 @@
           </section>
       </section>
       <!--main content end-->
+      </div>
+                <div id="fixed">
+                    <g:each status="i" var="badge" in="${session?.badgeLeaderBoard?.keySet()}">
+                      <div id="badge${i}" style="text-align: left;  padding-left: 10px;">
+                          <p style="word-spacing: 15px;">
+                              <div>
+                                  <div class="badge-icon">
+                                        <span class="fa-stack fa-lg" title="${badge.badgeName}">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa ${badge.badgeIcon} fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </div>
+                                  <div class="badge-leader">
+                                       <p>${badge.badgeName}</p>
+                                      <g:each status="j" var="userBadge" in="${session?.badgeLeaderBoard?.get(badge)}">
+                                          <img src="${userBadge?.user.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" alt="" style="width:35px; height: 35px;">
+                                      </g:each>
+                                  </div>
+                                  <div style="clear:both"></div>
+                              </div>
+                          </p>
+                          <hr>
+                      </div>
+
+                    </g:each>
+
+
+        </div>
   </section>
   <!-- container section start -->
 

@@ -8,6 +8,15 @@ import org.codehaus.groovy.grails.commons.GrailsApplication
 class TrophyService  {
     def dataSource
 
+    void testSomething() {
+        def var = TrohpyReason.findAll()
+        var.each {
+
+            it.reason
+
+        }
+    }
+
     UserService userService = new UserService();
 
     TrophyService(def dataSource){
@@ -25,6 +34,7 @@ class TrophyService  {
         history.setTrophies(trophyDTO.getTrohpies())
         history.setUser(toUser)
         history.setTrophiesGivenBy(fromUser)
+        history.setBadge(trophyDTO.badge)
         history.save(flush: true,  failOnError: true)
         
         TrohpyReason reason = new TrohpyReason();

@@ -23,6 +23,7 @@ class AddUserToSessionFilters {
                             session.userInfo=user;
                         }
                         TrophyService trophyService = new TrophyService(dataSource);
+                        trophyService.testSomething()
                         session.starOfTheDayMap = trophyService.getStarOfTheDay(session.userInfo.getDepartment());
                         session.starOfTheWeekMap = trophyService.getStarOfTheWeek(session.userInfo.getDepartment());
                         session.starOfTheMonthMap = trophyService.getStarOfTheMonth(session.userInfo.getDepartment());
@@ -39,6 +40,7 @@ class AddUserToSessionFilters {
 
                         BadgeService badgeService = new BadgeService()
                         session.badges = badgeService.listNonEvilBadges();
+                        session.badgeLeaderBoard = badgeService.getBadgeLeaderBoard();
                 }
             }
         }
