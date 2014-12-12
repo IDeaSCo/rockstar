@@ -12,7 +12,15 @@ class TrophyService  {
         def var = TrohpyReason.findAll()
         var.each {
 
-            it.reason
+            try {
+                TrohpyReasonBack back = new TrohpyReasonBack();
+                back.historyID = it.historyID;
+                back.reason = it.reason;
+                back.save(flush: true, failOnError: false)
+            }catch(Exception e){
+                e.printStackTrace()
+
+            }
 
         }
     }

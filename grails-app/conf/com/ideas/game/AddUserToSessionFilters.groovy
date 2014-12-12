@@ -23,7 +23,7 @@ class AddUserToSessionFilters {
                             session.userInfo=user;
                         }
                         TrophyService trophyService = new TrophyService(dataSource);
-                        trophyService.testSomething()
+
                         session.starOfTheDayMap = trophyService.getStarOfTheDay(session.userInfo.getDepartment());
                         session.starOfTheWeekMap = trophyService.getStarOfTheWeek(session.userInfo.getDepartment());
                         session.starOfTheMonthMap = trophyService.getStarOfTheMonth(session.userInfo.getDepartment());
@@ -34,7 +34,7 @@ class AddUserToSessionFilters {
                         session.userHistoryList = trophyService.getHistory(session.userInfo);
                         session.userDepartmentHistoryList = trophyService.getDepartmentHistory(session.userInfo);
 
-                        MissionService missionService = new MissionService();
+                        MissionService missionService = new MissionService(dataSource);
                         session.openMission =
                                 missionService.getOpenMissions();
 

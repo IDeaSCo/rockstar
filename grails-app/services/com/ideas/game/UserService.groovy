@@ -27,7 +27,7 @@ class UserService {
         return emailIDs
     }
 
-    private User getUser(String email){
+    def User getUser(String email){
         UserInfoService userInfoService = new UserInfoService();
         UserService userService = new UserService();
         User user = User.findByEmail(email);
