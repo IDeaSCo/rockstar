@@ -1,10 +1,17 @@
 package com.ideas.game
 
+import groovy.sql.Sql
+
 /**
  * Created by idnasr on 12/11/2014.
  */
 class BadgeService {
+    def dataSource
 
+    def BadgeService(def dataSource){
+        this.dataSource=dataSource
+
+    }
     public def listAvailableBadges(){
         return Badge.findAll()
     }
@@ -25,13 +32,20 @@ class BadgeService {
         userBadge.save(flush: true,  failOnError: true);
     }
 
-    public def getBadgeLeaderBoard(){
+    public def getBadgeLeaderBoard(String department){
         def badgeMap = [:]
         def badges = Badge.findAll();
-        badges.each {
-            def listOfUsers = UserBadges.findAllByBadge(it, [max: 3, sort: "points", order: "desc"]);
-            badgeMap.put(it,listOfUsers)
+        badges.each { badge ->
+            def listOfUsersBadges = UserBadges.findAll("from UserBadges as ub where ub.user.department=:department and ub.badge.id=:badgeId order by ub.points desc " ,[department:department, badgeId: badge.id], [max: 3]);
+            badgeMap.put(badge,listOfUsersBadges)
         }
         return badgeMap;
+    }
+
+    public def getBadgesForUser(def user){
+        def userBadges = UserBadges.findAllByUser(user)
+        userBadges.each(){
+            println it.badge.badgeName
+        }
     }
 }

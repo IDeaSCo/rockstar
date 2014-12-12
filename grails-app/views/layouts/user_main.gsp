@@ -74,12 +74,18 @@
                               <h6>${session?.userInfo?.getTitle()}</h6>
                             </div>
                             <div class="col-lg-8 col-sm-8 follow-info">
-                                <p> </p>
                                 <p style="font-size: 50px;font-weight: bolder;color: #222;">${session?.userInfo?.getTrophies()} <i style="padding-left:10px; color:blue" class="fa fa-star"></i>
-                                     
+                              <p>
+                                  <g:each status="i" var="userBadge" in="${session?.userBadges}">
+                                     <div style="float:left">
+                                          <span class="fa-stack fa-lg" title="${userBadge.badge.badgeName}">
 
-                            </div>
-                         
+                                             <i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x"></i>
+                                          </span>
+                                     </div>
+                                 </g:each>
+                              </p>
+                             </div>
                           </div>
 			   			 <footer class="profile-widget-foot">
 			   			 Appreciate someone today!

@@ -7,4 +7,9 @@ class UserBadges {
     User user
     Badge badge
     int points
+
+    static mapping = {
+        user lazy: false
+        badge lazy: false
+    }
 }

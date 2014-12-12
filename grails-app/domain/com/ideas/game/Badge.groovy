@@ -11,4 +11,5 @@ class Badge {
     int levelTwoPoints
     int levelThreePoints
     boolean isEvil
+    int displayOrder
 }

@@ -10,7 +10,6 @@ class AddUserToSessionFilters {
             before = {
                     println "User:"+request.getRemoteUser()+" IP:"+request.getRemoteAddr();
                     if(request.getRemoteUser() != null) {
-                        if (!session.userInfo) {
                             UserInfoService userInfoService = new UserInfoService();
                             UserInfoDTO dto = userInfoService.getUserInfoByUserName(request.getRemoteUser());
                             if(dto == null) return;
@@ -21,7 +20,7 @@ class AddUserToSessionFilters {
                                 user = userService.save(dto)
                             }
                             session.userInfo=user;
-                        }
+
                         TrophyService trophyService = new TrophyService(dataSource);
 
                         session.starOfTheDayMap = trophyService.getStarOfTheDay(session.userInfo.getDepartment());
@@ -38,9 +37,10 @@ class AddUserToSessionFilters {
                         session.openMission =
                                 missionService.getOpenMissions();
 
-                        BadgeService badgeService = new BadgeService()
+                        BadgeService badgeService = new BadgeService(dataSource)
                         session.badges = badgeService.listNonEvilBadges();
-                        session.badgeLeaderBoard = badgeService.getBadgeLeaderBoard();
+                        session.badgeLeaderBoard = badgeService.getBadgeLeaderBoard(session.userInfo.getDepartment());
+                        session.userBadges = badgeService.getBadgesForUser(session.userInfo);
                 }
             }
         }

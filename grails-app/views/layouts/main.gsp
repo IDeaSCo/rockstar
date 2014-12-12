@@ -469,7 +469,7 @@
                                   <div class="badge-leader">
                                        <p>${badge.badgeName}</p>
                                       <g:each status="j" var="userBadge" in="${session?.badgeLeaderBoard?.get(badge)}">
-                                          <img src="${userBadge?.user.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" alt="" style="width:35px; height: 35px;">
+                                          <img src="${userBadge?.user?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" alt="" style="width:35px; height: 35px;">
                                       </g:each>
                                   </div>
                                   <div style="clear:both"></div>
