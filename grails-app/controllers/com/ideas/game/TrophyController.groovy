@@ -9,6 +9,7 @@ class TrophyController {
         println "============================"
         def trophyDTO = new TrophyDTO(request.JSON)
 
+        trophyDTO.badge = Badge.findByBadgeName("Process Champ");
 
         if (isValidSource(request.getRemoteAddr(), trophyDTO.fromUserEmailID)) {
             trophyService.saveTrophies(trophyDTO)
@@ -34,11 +35,7 @@ class TrophyController {
 
     private boolean isValidSource(String ipAddress, String emailAddress){
         IPLookup ipLookup  = IPLookup.findByIpAddressAndEmailAddress(ipAddress,emailAddress);
-        if(ipLookup == null){
-            return false;
-        }else{
-            return true;
-        }
+        return ipLookup != null
     }
 
     def update = {
