@@ -3235,8 +3235,6 @@ table.sliders tr td {
     position: relative;
     text-align: left;
     width: 80px;
-    -webkit-mask: url('../img/mask.png') 0 0 no-repeat;
-    mask: url('../img/mask.png') 0 0 no-repeat;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -3342,8 +3340,8 @@ table.sliders tr td {
 .switch-square {
     border-radius: 6px;
     -webkit-border-radius: 6px;
-    -webkit-mask: url('../img/mask.png') 0 0 no-repeat;
-    mask: url('../img/mask.png') 0 0 no-repeat;
+    
+    
 }
 .switch-square > div.switch-off label {
     border-color: #7f8c9a;
@@ -3504,21 +3502,7 @@ table.sliders tr td {
     padding-left: 34px;
 }
 
-.has-js .label_radio {
-    background: url(../img/checkbox/radio-off.png) no-repeat;
-}
 
-.has-js .label_check {
-    background: url(../img/checkbox/check-off.png) no-repeat;
-}
-
-.has-js label.c_on {
-    background: url(../img/checkbox/check-on.png) no-repeat;
-}
-
-.has-js label.r_on {
-    background: url(../img/checkbox/radio-on.png) no-repeat;
-}
 
 .has-js .label_check input,
 .has-js .label_radio input {
