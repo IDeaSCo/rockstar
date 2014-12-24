@@ -41,7 +41,7 @@ class BadgeService {
 
     public def getBadgeLeaderBoard(String department){
         def badgeMap = [:]
-        def badges = Badge.findAll();
+        def badges = getBadgeListForDepartment(department);
         badges.each { badge ->
             def listOfUsersBadges = UserBadges.findAll("from UserBadges as ub where ub.user.department.departmentName=:department and ub.badge.id=:badgeId order by ub.points desc " ,[department:department, badgeId: badge.id], [max: 3]);
             badgeMap.put(badge,listOfUsersBadges)
