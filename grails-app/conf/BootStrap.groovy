@@ -1,15 +1,23 @@
 import com.ideas.game.Badge
+import com.ideas.game.Department
+import com.ideas.game.DepartmentBadges
 import com.ideas.game.User
 
 class BootStrap {
 
     def init = { servletContext ->
         createSeedBadges()
-
+        createDefaultDepartment()
+        setupCommonBadges()
     }
     def destroy = {
     }
 
+    def createDefaultDepartment(){
+        Department department = new Department();
+        department.departmentName="Default";
+        department.save(flush: true,  failOnError: false);
+    }
     def createSeedBadges(){
         createBadge("fa-line-chart","Test Champ",false,50,200,500,1);
         createBadge("fa-cloud-upload","Frequent Code Checker",false,50,150,350,2);
@@ -29,8 +37,27 @@ class BootStrap {
         createBadge("fa-warning","Code Saviour",false,100,200,300,16);
         createBadge("fa-warning","Process Violator",true,100,200,300,17);
         createBadge("fa-warning","Default",false,100,200,300,18);
+    }
 
+    def setupCommonBadges(){
 
+        Department defaultDepartment = Department.findByDepartmentName("Default");
+        createDepartmentBadge(defaultDepartment,"Innovator");
+        createDepartmentBadge(defaultDepartment,"Team Player");
+        createDepartmentBadge(defaultDepartment,"Presentation Champ");
+        createDepartmentBadge(defaultDepartment,"Process Champ");
+        createDepartmentBadge(defaultDepartment,"Appreciator");
+        createDepartmentBadge(defaultDepartment,"Community Contributor");
+        createDepartmentBadge(defaultDepartment,"Blogger");
+        createDepartmentBadge(defaultDepartment,"Process Violator");
+
+    }
+
+    private void createDepartmentBadge(Department defaultDepartment, String badgeName) {
+        DepartmentBadges departmentBadge = new DepartmentBadges();
+        departmentBadge.department = defaultDepartment
+        departmentBadge.badge = Badge.findByBadgeName(badgeName)
+        departmentBadge.save(flush: true,  failOnError: false);
     }
 
     def createBadge(String badgeIcon, String badgeName, boolean isEvil, int levelOnePoints, int levelTwoPoints, int levelThreePoints, int displayOrder  ){

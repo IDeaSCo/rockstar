@@ -48,7 +48,7 @@ class AddUserToSessionFilters {
                                 missionService.getOpenMissions();
 
                         BadgeService badgeService = new BadgeService(dataSource)
-                        session.badges = badgeService.listAvailableBadges();
+                        session.badges = badgeService.listAvailableBadges(session.userInfo.getDepartment().departmentName);
                         session.badgeLeaderBoard = badgeService.getBadgeLeaderBoard(session.userInfo.getDepartment().departmentName);
                         session.userBadges = badgeService.getBadgesForUser(session.userInfo);
                 }

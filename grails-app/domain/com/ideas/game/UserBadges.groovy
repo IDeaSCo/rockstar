@@ -12,4 +12,7 @@ class UserBadges {
         user lazy: false
         badge lazy: false
     }
+    static constraints = {
+        user(unique:['badge'])
+    }
 }

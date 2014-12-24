@@ -10,10 +10,17 @@ class BadgeService {
 
     def BadgeService(def dataSource){
         this.dataSource=dataSource
-
     }
-    public def listAvailableBadges(){
-        return Badge.findAll()
+    public def listAvailableBadges(String departmentName){
+        def badges = getBadgeListForDepartment("Default")
+        badges.addAll(getBadgeListForDepartment(departmentName))
+        return badges.sort{it.displayOrder};
+    }
+
+    private def getBadgeListForDepartment(String departmentName) {
+        Department department = Department.findByDepartmentName(departmentName);
+        def defaultBadgeIdList = DepartmentBadges.findAllByDepartment(department)*.badge.id
+        return Badge.findAllByIdInList(defaultBadgeIdList);
     }
 
     public def listNonEvilBadges(){
