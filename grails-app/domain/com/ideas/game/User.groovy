@@ -7,7 +7,7 @@ class User {
     String lastName
     String email
     String employeeId 
-    String department
+    Department department
     String title
     int trophies
     String accountName
@@ -19,6 +19,11 @@ class User {
         lastName   size:1..60
         email   size:1..120
     }
+
+    static mapping = {
+        department lazy: false
+    }
+
     String getName(){
         return firstName+" "+lastName;
     }

@@ -36,7 +36,7 @@ class BadgeService {
         def badgeMap = [:]
         def badges = Badge.findAll();
         badges.each { badge ->
-            def listOfUsersBadges = UserBadges.findAll("from UserBadges as ub where ub.user.department=:department and ub.badge.id=:badgeId order by ub.points desc " ,[department:department, badgeId: badge.id], [max: 3]);
+            def listOfUsersBadges = UserBadges.findAll("from UserBadges as ub where ub.user.department.departmentName=:department and ub.badge.id=:badgeId order by ub.points desc " ,[department:department, badgeId: badge.id], [max: 3]);
             badgeMap.put(badge,listOfUsersBadges)
         }
         return badgeMap;
