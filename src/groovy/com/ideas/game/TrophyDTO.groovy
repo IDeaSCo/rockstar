@@ -14,6 +14,7 @@ class TrophyDTO {
         String toUserEmailID
         int trohpies
         String reason
+        String badgeName
         Badge badge
 }
 

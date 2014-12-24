@@ -31,6 +31,12 @@ class TrophyService  {
         this.dataSource = dataSource;
     }
 
+    private int negativeTrophiesShouldOnlyAffectTheBadge(int trophies){
+        if(trophies < 0){
+            return 0;
+        }
+        return trophies;
+    }
     def saveTrophies(TrophyDTO trophyDTO) {
 
 
@@ -39,28 +45,37 @@ class TrophyService  {
         
         TrohpyHistory history = new TrohpyHistory();
         history.setDate(new Date());
-        history.setTrophies(trophyDTO.getTrohpies())
-        history.setUser(toUser)
-        history.setTrophiesGivenBy(fromUser)
-        history.setBadge(trophyDTO.badge)
-        history.save(flush: true,  failOnError: true)
+        int trophies = negativeTrophiesShouldOnlyAffectTheBadge(trophyDTO.getTrohpies());
+
+        saveTrophyHistory(history, trophyDTO, toUser, fromUser, trophies)
         
         TrohpyReason reason = new TrohpyReason();
-        reason.setHistoryID(history)
-        reason.setReason(trophyDTO.getReason())
-        reason.save(flush: true,  failOnError: true)
+        saveHistoryReason(reason, history, trophyDTO)
 
-        
-        toUser.setTrophies(toUser.getTrophies()+trophyDTO.getTrohpies());
+        toUser.setTrophies(toUser.getTrophies()+trophies);
         toUser.save(flush: true,  failOnError: true)
 
         BadgeService badgeService = new BadgeService();
         badgeService.updateUserBadePoints(toUser,trophyDTO.badge,trophyDTO.getTrohpies())
 
     }
-    
 
-    
+    private void saveHistoryReason(TrohpyReason reason, TrohpyHistory history, TrophyDTO trophyDTO) {
+        reason.setHistoryID(history)
+        reason.setReason(trophyDTO.getReason())
+        reason.save(flush: true, failOnError: true)
+    }
+
+    private void saveTrophyHistory(TrohpyHistory history, TrophyDTO trophyDTO, User toUser, User fromUser, int trophies) {
+        history.setTrophies(trophyDTO.getTrohpies())
+        history.setUser(toUser)
+        history.setTrophiesGivenBy(fromUser)
+        history.setBadge(trophyDTO.badge)
+        history.setTrophies(trophies)
+        history.save(flush: true, failOnError: true)
+    }
+
+
     private User getFromUser(TrophyDTO trophyDTO){
         return userService.getUser(trophyDTO.getFromUserEmailID());
     }

@@ -12,4 +12,8 @@ class Badge {
     int levelThreePoints
     boolean isEvil
     int displayOrder
+
+    static constraints = {
+        badgeName unique: true
+    }
 }

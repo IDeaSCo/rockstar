@@ -9,7 +9,7 @@ class TrophyController {
         println "============================"
         def trophyDTO = new TrophyDTO(request.JSON)
 
-        trophyDTO.badge = Badge.findByBadgeName("Process Champ");
+        trophyDTO.badge = Badge.findByBadgeName(request.badgeName);
 
         if (isValidSource(request.getRemoteAddr(), trophyDTO.fromUserEmailID)) {
             trophyService.saveTrophies(trophyDTO)

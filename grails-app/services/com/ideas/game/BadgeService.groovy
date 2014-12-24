@@ -27,7 +27,7 @@ class BadgeService {
             userBadge.badge=badge;
             userBadge.user=toUser;
         }
-        userBadge.points+=points;
+        userBadge.points+= Math.abs(points);
 
         userBadge.save(flush: true,  failOnError: true);
     }
