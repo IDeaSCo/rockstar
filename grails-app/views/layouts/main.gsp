@@ -461,8 +461,18 @@
                               <div>
                                   <div class="badge-icon">
                                         <span class="fa-stack fa-lg" title="${badge.badgeName}">
-                                          <i class="fa fa-circle fa-stack-2x"></i>
-                                          <i class="fa ${badge.badgeIcon} fa-stack-1x fa-inverse"></i>
+						<g:if test="${session?.badgeLeaderBoard?.get(badge).size()>0}">
+							<i class="fa fa-circle fa-stack-2x" style="color: ${session?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelColor()};"></i>
+						</g:if>
+						<g:else>
+							<i class="fa fa-circle fa-stack-2x" ></i>
+						</g:else>
+				             	<g:if test="${badge.isEvil}">
+                                             		<i class="fa ${badge.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+                                          	</g:if>	
+						     <g:else>
+							<i class="fa ${badge.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+						     </g:else>	
                                       </span>
                                   </div>
                                   <div class="badge-leader">

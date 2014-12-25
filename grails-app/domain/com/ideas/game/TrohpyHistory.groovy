@@ -10,6 +10,8 @@ class TrohpyHistory {
     
     static constraints = {
     }
-    
+    static mapping = {
+        trophiesGivenBy lazy: false
+    }
     
 }

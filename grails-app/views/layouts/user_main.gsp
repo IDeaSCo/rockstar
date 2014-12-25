@@ -47,8 +47,9 @@
             </div>
 
             <!--logo start-->
-            <a href="./index" class="logo">IDeaS Rock Stars</a>
-            <a class="badge bg-important" href="./badges.html" >Badges</a>
+            <g:link controller="index" class="logo">IDeaS Rock Stars</g:link>
+            <g:link controller="badges.html" class="badge bg-important">Levels</g:link>
+            
             <!--logo end-->
  
             
@@ -67,7 +68,7 @@
                             <div class="col-lg-4 col-sm-4 profile-widget-name">
                               <h4>${session?.userInfo?.getName()}</h4>               
                               <div class="follow-ava">
-                                  <img src="${session?.userInfo?.getUserImage()}" alt="" onError="this.src='${session?.userInfo?.getNoImage()}';">
+                                  <a href="user/view/${session?.userInfo?.id}" ><img src="${session?.userInfo?.getUserImage()}" alt="" onError="this.src='${session?.userInfo?.getNoImage()}';"></a>
                                   
                               </div>
                               <h6>${session?.userInfo?.getTitle()}</h6>
@@ -76,12 +77,19 @@
                                 <p style="font-size: 50px;font-weight: bolder;color: #222;">${session?.userInfo?.getTrophies()} <i style="padding-left:10px; color:blue" class="fa fa-star"></i>
                               <p>
                                   <g:each status="i" var="userBadge" in="${session?.userBadges}">
-                                     <div style="float:left">
+                                     
                                           <span class="fa-stack fa-lg" title="${userBadge.badge.badgeName}">
-
-                                             <i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x"></i>
+						<i class="fa fa-circle fa-stack-2x" style="color: ${userBadge.getLevelColor()};"></i>
+				             	<g:if test="${userBadge.badge.isEvil}">
+                                             		<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+                                          	</g:if>	
+						     <g:else>
+							<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+						     </g:else>	
                                           </span>
-                                     </div>
+			
+                                     
+                                     
                                  </g:each>
                               </p>
                              </div>
@@ -190,7 +198,7 @@
                                   </td>-->
                                   <td style="width:10px;">
                                     <span >
-                                        <img alt="" class="simple" src="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first()).getUserImage()}" height="35" onError="this.src='${session?.userInfo?.getNoImage()}';">
+                                        <a href="user/view/${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first()).id}" ><img alt="" class="simple" src="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first()).getUserImage()}" height="35" onError="this.src='${session?.userInfo?.getNoImage()}';"></a>
                                         <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                         
                                     </span>
@@ -352,7 +360,7 @@
                                           </td>-->
                                           <td style="width:10px;">
                                             <span >
-                                            <img alt="" class="simple" src="${user.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="40">
+                                            <g:link controller="user" action="view" id="${user.id}" ><img alt="" class="simple" src="${user.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="40"></g:link>
                                             <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
                                             </span>
                                           </td>

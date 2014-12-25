@@ -15,4 +15,25 @@ class UserBadges {
     static constraints = {
         user(unique:['badge'])
     }
+
+    int getLevel(){
+        if(points < badge.levelOnePoints ){
+            return 1;
+        } else if(points <  badge.levelTwoPoints ){
+            return 2;
+        }else{
+            return 3;
+        }
+    }
+
+    String getLevelColor(){
+        int level = getLevel();
+        if(level == 1 ){
+            return "#cd7f32";
+        } else if(level == 2){
+            return "#C0C0C0";
+        }else{
+            return "#FFD700";
+        }
+    }
 }

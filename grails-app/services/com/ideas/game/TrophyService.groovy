@@ -156,6 +156,25 @@ class TrophyService  {
         return appreciatorMap;
     }
 
+
+    def getReasonsForBadge(def userBadgeList){
+        def reasonOfStarsReceivedByBadge = [:]
+
+        userBadgeList.each(){
+            List historyList = TrohpyHistory.findAll("from TrohpyHistory as a where  user.id="+it.user.id+" and a.badge.id="+it.badge.id+" order by date desc",[max: 30]);
+            def listOfReasons = [];
+            historyList.each(){
+                def trophieReasonList = [];
+                trophieReasonList.add(it);
+                trophieReasonList.add(TrohpyReason.findByHistoryID(it)?.reason)
+                listOfReasons.add(trophieReasonList);
+            }
+            reasonOfStarsReceivedByBadge.put(it.badge.id,listOfReasons);
+        }
+
+        return reasonOfStarsReceivedByBadge;
+    }
+
     def getHistory(User user){
         def historyList = []
 		List list  = TrohpyHistory.findAllByUser(user,[sort: "date", order: "desc", max: 30]);        
