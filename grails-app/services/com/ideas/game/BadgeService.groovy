@@ -18,6 +18,7 @@ class BadgeService {
     }
 
     private def getBadgeListForDepartment(String departmentName) {
+
         Department department = Department.findByDepartmentName(departmentName);
         def defaultBadgeIdList = DepartmentBadges.findAllByDepartment(department)*.badge.id
         return Badge.findAllByIdInList(defaultBadgeIdList);
@@ -44,6 +45,7 @@ class BadgeService {
         def badges = listAvailableBadges(department);
 
         badges.each { badge ->
+            println "Badge:"+badge.badgeName
             def listOfUsersBadges = UserBadges.findAll("from UserBadges as ub where ub.user.department.departmentName=:department and ub.badge.id=:badgeId order by ub.points desc " ,[department:department, badgeId: badge.id], [max: 3]);
             badgeMap.put(badge,listOfUsersBadges)
         }
@@ -51,10 +53,8 @@ class BadgeService {
     }
 
     public def getBadgesForUser(def user){
-        def userBadges = UserBadges.findAllByUser(user)
-        userBadges.each(){
-            //println it.badge.badgeName
-        }
+        def userBadges = UserBadges.findAllByUser(user,[sort: "badge.displayOrder", order: "asc"])
+
     }
 
     public def getUserCompetition(def userBadge){

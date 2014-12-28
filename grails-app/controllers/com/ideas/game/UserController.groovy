@@ -22,7 +22,6 @@ class UserController {
     }
 
     def profile(){
-        println "reaced profile page"
         TrophyService trophyService = new TrophyService(dataSource);
         BadgeService badgeService = new BadgeService(dataSource);
 

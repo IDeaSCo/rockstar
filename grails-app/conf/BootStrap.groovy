@@ -27,16 +27,16 @@ class BootStrap {
         createBadge("fa-file-movie-o","Presentation Champ",false,100,300,500,6);
         createBadge("fa-sort-alpha-asc","Process Champ",false,50,300,900,7);
         createBadge("fa-thumbs-up","Appreciator",false,50,300,900,8);
-        createBadge("fa-scissors","Build Breaker",true,0,0,0,9);
-        createBadge("fa-bomb","Spillover Champ",true,0,0,0,10);
-        createBadge("fa-maxcdn","Mission Impossible",false,100,500,1000,11);
-        createBadge("fa-stack-overflow","Community Contributor",false,100,300,500,12);
-        createBadge("fa-wordpress","Blogger",false,100,400,900,13);
-        createBadge("fa-warning","Cheater",true,100,200,300,14);
-        createBadge("fa-warning","Code Violator",true,100,200,300,15);
-        createBadge("fa-warning","Code Saviour",false,100,200,300,16);
-        createBadge("fa-warning","Process Violator",true,100,200,300,17);
-        createBadge("fa-warning","Default",false,100,200,300,18);
+        createBadge("fa-scissors","Build Breaker",true,0,0,0,100);
+        createBadge("fa-bomb","Spillover Champ",true,0,0,0,101);
+        createBadge("fa-maxcdn","Mission Impossible",false,100,500,1000,9);
+        createBadge("fa-stack-overflow","Community Contributor",false,100,300,500,10);
+        createBadge("fa-wordpress","Blogger",false,100,400,900,11);
+        createBadge("fa-pied-piper-alt","Cheater",true,100,200,300,102);
+        createBadge("fa-bug","Code Violator",true,100,200,300,103);
+        createBadge("fa-magic","Code Saviour",false,100,200,300,12);
+        createBadge("fa-cogs","Process Violator",true,100,200,300,104);
+        createBadge("fa-check","Default",false,100,200,300,99);
     }
 
     def setupCommonBadges(){

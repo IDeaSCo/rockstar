@@ -178,9 +178,9 @@
                                  </g:each>
 			   			 <footer class="profile-widget-foot">
 			   			 Appreciate someone today!
-			   			 <button class="btn btn-default" data-toggle="modal" data-target="#myModal" ><i class="fa fa-thumbs-up"></i></button>
+			   			 <button class="btn btn-default" data-toggle="modal" data-target="#myModal" ><i style="font-size:150%" class="fa fa-thumbs-up"></i></button>
 			   			 <g:if test="${session.userInfo.isEligibleToGrantMoreOrLessThanOneStars()}">
-			   			 <button  title="Create Mission" class="btn btn-default" data-toggle="modal" data-target="#missionModal" ><i class="fa fa-bullseye "></i></button>
+			   			 <button  title="Create Mission" class="btn btn-default" data-toggle="modal" data-target="#missionModal" ><i style="font-size:150%" class="fa fa-bullseye"></i></button>
                          </g:if>
 
 
