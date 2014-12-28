@@ -21,4 +21,19 @@ class UserController {
         [userInstance: userInstance, userBadges:userBadges, reasonOfStarsReceivedByBadge:reasonOfStarsReceivedByBadge]
     }
 
+    def profile(){
+        println "reaced profile page"
+        TrophyService trophyService = new TrophyService(dataSource);
+        BadgeService badgeService = new BadgeService(dataSource);
+
+        def departmentMap = trophyService.getDepartmentMap(session.userInfo.getDepartment().departmentName);
+        def userBadges = badgeService.getBadgesForUser(session.userInfo);
+        def userCompetitorBadges = [];
+        def userFollowerBadges = [];
+        userBadges.each(){
+            userCompetitorBadges.add(badgeService.getUserCompetition(it));
+            userFollowerBadges.add(badgeService.getUserFollower(it));
+        }
+        [departmentMap: departmentMap, userBadges:userBadges, userCompetitorBadges:userCompetitorBadges, userFollowerBadges:userFollowerBadges]
+    }
 }

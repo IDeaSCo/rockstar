@@ -39,9 +39,6 @@ class AddUserToSessionFilters {
                         session.starMap = trophyService.getStar(session.userInfo.getDepartment().departmentName);
                         session.appreciatorMap = trophyService.getAppreciator(session.userInfo.getDepartment().departmentName);
 
-                        session.departmentMap = trophyService.getDepartmentMap(session.userInfo.getDepartment().departmentName);
-                        session.userHistoryList = trophyService.getHistory(session.userInfo);
-                        session.userDepartmentHistoryList = trophyService.getDepartmentHistory(session.userInfo);
 
                         MissionService missionService = new MissionService(dataSource);
                         session.openMission =
@@ -50,7 +47,6 @@ class AddUserToSessionFilters {
                         BadgeService badgeService = new BadgeService(dataSource)
                         session.badges = badgeService.listAvailableBadges(session.userInfo.getDepartment().departmentName);
                         session.badgeLeaderBoard = badgeService.getBadgeLeaderBoard(session.userInfo.getDepartment().departmentName);
-                        session.userBadges = badgeService.getBadgesForUser(session.userInfo);
                 }
             }
         }

@@ -56,4 +56,20 @@ class BadgeService {
             //println it.badge.badgeName
         }
     }
+
+    public def getUserCompetition(def userBadge){
+        def listOfUsersBadges = UserBadges.findAll("from UserBadges as ub where ub.user.department.departmentName=:department and ub.badge.id=:badgeId and ub.points>:points order by ub.points asc " ,[department:userBadge.user.department.departmentName, badgeId: userBadge.badge.id, points:userBadge.points], [max: 1]);
+        if(listOfUsersBadges.size()==0){
+            return userBadge
+        }
+        return listOfUsersBadges.get(0)
+    }
+    public def getUserFollower(def userBadge){
+        def listOfUsersBadges = UserBadges.findAll("from UserBadges as ub where ub.user.department.departmentName=:department and ub.badge.id=:badgeId and ub.points<:points order by ub.points desc " ,[department:userBadge.user.department.departmentName, badgeId: userBadge.badge.id, points:userBadge.points], [max: 1]);
+        if(listOfUsersBadges.size()==0){
+            return userBadge
+        }
+        return listOfUsersBadges.get(0)
+    }
+
 }

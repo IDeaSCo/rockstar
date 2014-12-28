@@ -44,18 +44,18 @@ class TrophyController {
         def trophyService = new TrophyService(dataSource);
         def trophyDTO = new TrophyDTO()
         if(params?.reason?.equals("")){
-            return redirect(uri: "/user")
+            return redirect(uri: "/user/profile")
         }
         if(params?.toUserEmailID?.equals("")){
-            return redirect(uri: "/user")
+            return redirect(uri: "/user/profile")
         }
         if(params?.trohpies == null ||  params.trohpies.toInteger() == 0){
-            return redirect(uri: "/user")
+            return redirect(uri: "/user/profile")
         }
         if(params.trohpies.toInteger() != 1){
             if( !session.userInfo.isEligibleToGrantMoreOrLessThanOneStars() ){
                 println "User "+session.userInfo.getName()+" not eligible to grant "+params.trohpies.toInteger()+" stars.";
-                return redirect(uri: "/user")
+                return redirect(uri: "/user/profile")
             }
         }
 
@@ -69,6 +69,6 @@ class TrophyController {
             trophyService.saveTrophies(trophyDTO)
 
         }
-        redirect(uri: "/user")
+        redirect(uri: "/user/profile")
     }
 }

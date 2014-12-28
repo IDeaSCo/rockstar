@@ -480,10 +480,11 @@ ul.sidebar-menu li.active a i {
 /*main content*/
 
 #main-content {
-   /* margin-left: 180px;*/
+    margin-left: 10px;
+    
 }
 #main-content1 {
-    margin-left: 180px;
+    margin-left: 10px;
 }
 .header, .footer {
     min-height: 60px;
@@ -4044,7 +4045,7 @@ span.customSelect.changed {
 
 #fixed
 {
-  width: 300px;
+  width: 350px;
   background: white;
   position: absolute;
   top: 60px;
@@ -4070,7 +4071,7 @@ width: 80%
 {
 background: gainsboro;
 position: absolute;
-left: 300px;
+left: 350px;
 margin-top: 60px;
     height: 100%;
 }

@@ -48,14 +48,15 @@
 
 			    <li class="dropdown" style="top:5px;">
 
+					<g:link controller="user" action="profile" >
+						<span class="profile-ava">
 
-				    <span class="profile-ava">
-
-					    <img alt="" src="${session?.userInfo?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="35">
-					    <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${session?.userInfo?.getUserBadge()}</span>
-				        </span>
-				        <span class="username"><a href="user" >${session?.userInfo?.getName()}</a>
-				        </span>
+						    <img alt="" src="${session?.userInfo?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="35">
+						    <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${session?.userInfo?.getUserBadge()}</span>
+						</span>
+						<span class="username">${session?.userInfo?.getName()}
+						</span>
+				        </g:link>
 
 			    </li>
 
@@ -66,7 +67,7 @@
 <!--container starts-->
 <div class="container">
 <!--right side content starts-->
-<div id="fluid" class="col-lg-9">
+<div id="fluid" class="col-lg-10">
       <section id="main-content">
           <section class="wrapper">
               <!--overview start-->
@@ -485,14 +486,12 @@
                                       </g:each>
                                   </div>
                                   <div style="clear:both"></div>
-                              </div>
+                              	  </div>
                           </p>
                           <hr>
                       </div>
 
                     </g:each>
-
-
         </div>
   </section>
   <!-- container section start -->

@@ -56,12 +56,94 @@
       </header>      
       <!--header end-->
       <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper">            
-              <!--overview start-->
-              <div class="row state-overview">
-                  <div class="col-lg-3">
-                  <!--user profile info start-->
+<!--container starts-->
+<div class="container">
+<!--right side content starts-->
+<div id="fluid" class="col-lg-10">
+
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  		<g:each status="i" var="userBadge" in="${request?.userBadges}">
+		  <div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id="heading${userBadge.badge.id}">
+		      <h4 class="panel-title">
+		        <g:if test="${i == 0}">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapse${userBadge.badge.id}" aria-expanded="true" aria-controls="collapse${userBadge.badge.id}">
+			</g:if>
+			<g:else>
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapse${userBadge.badge.id}" aria-expanded="false" aria-controls="collapse${userBadge.badge.id}">
+			</g:else>
+			  	<span class="fa-stack fa-lg" title="${userBadge.badge.badgeName}">
+				<i class="fa fa-circle fa-stack-2x" style="color: ${userBadge.getLevelColor()};"></i>
+				<g:if test="${userBadge.badge.isEvil}">
+					<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+				</g:if>	
+			        <g:else>
+					<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+			     	</g:else>	
+			  </span>
+			  		${userBadge.badge.badgeName}
+			</a>
+		      </h4>
+		    </div>
+		    <g:if test="${i == 0}">
+		    	<div id="collapse${userBadge.badge.id}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading${userBadge.badge.id}">
+		    </g:if>
+		    <g:else>
+		    	<div id="collapse${userBadge.badge.id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading${userBadge.badge.id}">
+		    </g:else>
+			<!--panel body starts-->
+			<div class="panel-body" style="text-align:center;">
+			  <div id="content1${userBadge.badge.id}" style="width:300px; text-align:center; float:left; padding:10px;">
+				<div style="background: #ED943C; padding: 15px;">
+				    <h4 style="color:#fff">${request.userCompetitorBadges.get(i).user.getName()}</h4>
+				    <div>
+					
+					<g:link controller="user" action="view" id="${request.userCompetitorBadges.get(i)?.user.id}" ><img src="${request.userCompetitorBadges.get(i)?.user.getUserImage()}" alt="" onError="this.src='${session?.userInfo?.getNoImage()}';" width="75px" height="75px;" ></g:link>
+				    </div>
+				    
+				    <h6 style="color:#fff">${request.userCompetitorBadges.get(i).user?.title}</h6>
+				    <p style="font-size: 25px;font-weight: bolder;color: #fff;">${request.userCompetitorBadges.get(i).points} <i style="padding-left:10px; color:blue;" class="icon_star"></i>
+
+				    </p>
+				</div>
+			  </div>
+
+			  <div id="content2${userBadge.badge.id}" style="width:300px; text-align:center;float:left;padding:10px;">
+				<div style="background: #B5A63F; padding: 15px;">
+				    <h4 style="color:#fff">${session?.userInfo?.getName()}</h4>
+				    <div>					
+					<a href="user/view/${session?.userInfo?.id}" ><img src="${session?.userInfo?.getUserImage()}" alt="" onError="this.src='${session?.userInfo?.getNoImage()}';" width="75px" height="75px;" ></a>
+				    </div>
+				    <h6 style="color:#fff">${session?.userInfo?.title}</h6>
+				    <p style="font-size: 25px;font-weight: bolder;color: #fff;">${userBadge.points} <i style="padding-left:10px; color:blue;" class="icon_star"></i>
+
+				    </p>
+				</div>
+			 </div>
+			 <div id="content3${userBadge.badge.id}" style="width:300px; text-align:center;float:left;padding:10px;">
+				<div style="background: currentcolor; padding: 15px;">
+				    <h4 style="color:#fff">${request.userFollowerBadges.get(i).user.getName()}</h4>
+				    <div>
+					
+					<g:link controller="user" action="view" id="${request.userFollowerBadges.get(i)?.user.id}" ><img src="${request.userFollowerBadges.get(i)?.user.getUserImage()}" alt="" onError="this.src='${session?.userInfo?.getNoImage()}';" width="75px" height="75px;" ></g:link>
+				    </div>
+				    
+				    <h6 style="color:#fff">${request.userFollowerBadges.get(i).user?.title}</h6>
+				    <p style="font-size: 25px;font-weight: bolder;color: #fff;">${request.userFollowerBadges.get(i).points} <i style="padding-left:10px; color:blue;" class="icon_star"></i>
+
+				    </p>
+				</div>
+			 </div>
+		     </div>
+		   </div>
+		   <!--panel body ends-->
+		  </div>  
+ 		</g:each>
+ 		</div>
+</div>
+</div>	
+      <!--main content end-->
+                <div id="fixed">
                   <section class="panel">
                       <div class="profile-widget profile-widget-info">
                           <div class="panel-body">
@@ -76,7 +158,10 @@
                             <div class="col-lg-8 col-sm-8 follow-info">
                                 <p style="font-size: 50px;font-weight: bolder;color: #222;">${session?.userInfo?.getTrophies()} <i style="padding-left:10px; color:blue" class="fa fa-star"></i>
                               <p>
-                                  <g:each status="i" var="userBadge" in="${session?.userBadges}">
+                              </p>
+                             </div>
+                          </div>
+                                  <g:each status="i" var="userBadge" in="${request?.userBadges}">
                                      
                                           <span class="fa-stack fa-lg" title="${userBadge.badge.badgeName}">
 						<i class="fa fa-circle fa-stack-2x" style="color: ${userBadge.getLevelColor()};"></i>
@@ -91,14 +176,11 @@
                                      
                                      
                                  </g:each>
-                              </p>
-                             </div>
-                          </div>
 			   			 <footer class="profile-widget-foot">
 			   			 Appreciate someone today!
 			   			 <button class="btn btn-default" data-toggle="modal" data-target="#myModal" ><i class="fa fa-thumbs-up"></i></button>
 			   			 <g:if test="${session.userInfo.isEligibleToGrantMoreOrLessThanOneStars()}">
-			   			    <button title="Create Mission" class="btn btn-default" data-toggle="modal" data-target="#missionModal" ><img alt="Create Mission" src="images/mission.png" height="10" ></button>
+			   			 <button  title="Create Mission" class="btn btn-default" data-toggle="modal" data-target="#missionModal" ><i class="fa fa-bullseye "></i></button>
                          </g:if>
 
 
@@ -165,211 +247,30 @@
                           </footer>
                       </div>
                   </section>
-                  <!--user profile info end-->
-                </div>
-                  <div class="col-lg-0">
-                      </div>
-                   
-                  
-                <!--today start-->
-              <div class="col-lg-3">
-                    <section class="panel">
-                          <header class="panel-heading tab-bg-primary ">
-                              <ul class="nav nav-tabs">
-                                  <li class="active">
-                                      <a data-toggle="tab" href="#home">Star of the Day</a>
-                                  </li>
-                             
-                              </ul>
-                          </header>
-                        <div class="panel-body" style="height: 140px;">
-                              <div class="tab-content">
-                                  <div id="home" class="tab-pane active">
-                                      <!--project team start-->
-                              <section class="panel">
-                                
-                                   
-                        <table class="table table-hover personal-task">
-                              <tbody>
-                                <g:if test="${session?.starOfTheDayMap?.size() > 0}">
-                                <tr>
-                                    <!--<td>
-                                     <p class="badge bg-info1">2</p>
-                                  </td>-->
-                                  <td style="width:10px;">
-                                    <span >
-                                        <a href="user/view/${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first()).id}" ><img alt="" class="simple" src="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first()).getUserImage()}" height="35" onError="this.src='${session?.userInfo?.getNoImage()}';"></a>
-                                        <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
-                                        
-                                    </span>
-                                  </td>
-                                  <td>
-                                      <p class="profile-name">${session?.starOfTheDayMap?.keySet().toList().first().getName()}</p>
-                                      <p class="profile-occupation">${session?.starOfTheDayMap?.keySet().toList().first().getTitle()}</p>
-                                  </td>
-                                  <td>
-                                      <span class="badge bg-info">${session?.starOfTheDayMap?.get(session?.starOfTheDayMap?.keySet().toList().first())}</span>
-                                     <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
-                                  </td>                                  
-                              </tr>
-                             
-                              </g:if>
-                           
-                              </tbody>
-                          </table>
-                      </section>
-                      <!--Project Team end-->
-                                  </div>
-                                  
-                              </div>
-                          </div>
-                      </section>
-              </div>
-              <!--today end-->
-                  
-                     <!--week start-->
-              <div class="col-lg-3">
-                    <section class="panel">
-                          <header class="panel-heading tab-bg-primary ">
-                              <ul class="nav nav-tabs">
-                                  <li class="active">
-                                      <a data-toggle="tab" href="#home">Star of the Week</a>
-                                  </li>
-                             
-                              </ul>
-                          </header>
-                          <div class="panel-body" style="height: 140px;">
-                              <div class="tab-content">
-                                  <div id="home" class="tab-pane active">
-                                      <!--project team start-->
-                              <section class="panel">
-                                
-                                   
-                        <table class="table table-hover personal-task">
-                              <tbody>
-                                <g:if test="${session?.starOfTheWeekMap?.size() > 0}">
-                                     <tr>
-                                         <!--<td>
-                                          <p class="badge bg-info1">2</p>
-                                       </td>-->
-                                       <td style="width:10px;">
-                                         <span >
-                                             <img alt="" class="simple" src="${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="35">
-                                             <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
-                                         </span>
-                                       </td>
-                                       <td>
-                                           <p class="profile-name">${session?.starOfTheWeekMap?.keySet().toList().first().getName()}</p>
-                                           <p class="profile-occupation">${session?.starOfTheWeekMap?.keySet().toList().first().getTitle()}</p>
-                                       </td>
-                                       <td>
-                                           <span class="badge bg-info">${session?.starOfTheWeekMap?.get(session?.starOfTheWeekMap?.keySet().toList().first())}</span>
-                                          <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
-                                       </td>                                  
-                                   </tr>
-                             
-                                </g:if>
-                           
-                              </tbody>
-                          </table>
-                      </section>
-                      <!--Project Team end-->
-                                  </div>
-                                  
-                              </div>
-                          </div>
-                      </section>
-              </div>
-              <!--week end-->
-                  <!--month start-->
-              <div class="col-lg-3">
-                    <section class="panel">
-                          <header class="panel-heading tab-bg-primary ">
-                              <ul class="nav nav-tabs">
-                                  <li class="active">
-                                      <a data-toggle="tab" href="#home">Star of the Month</a>
-                                  </li>
-                             
-                              </ul>
-                          </header>
-                        <div class="panel-body" style="height: 140px;">
-                              <div class="tab-content">
-                                  <div id="home" class="tab-pane active">
-                                      <!--project team start-->
-                              <section class="panel">
-                                
-                                   
-                        <table class="table table-hover personal-task">
-                              <tbody>
-                                <g:if test="${session?.starOfTheMonthMap?.size() > 0}">
-                                    <tr>
-                                        <!--<td>
-                                         <p class="badge bg-info1">2</p>
-                                      </td>-->
-                                      <td style="width:10px;">
-                                        <span >
-                                            <img alt="" class="simple" src="${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="35">
-                                            <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
-                                        </span>
-                                      </td>
-                                      <td>
-                                          <p class="profile-name">${session?.starOfTheMonthMap?.keySet().toList().first().getName()}</p>
-                                          <p class="profile-occupation">${session?.starOfTheMonthMap?.keySet().toList().first().getTitle()}</p>
-                                      </td>
-                                      <td>
-                                          <span class="badge bg-info">${session?.starOfTheMonthMap?.get(session?.starOfTheMonthMap?.keySet().toList().first())}</span>
-                                         <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
-                                      </td>                                  
-                                  </tr>
-                                </g:if>
-                              
-                           
-                              </tbody>
-                          </table>
-                      </section>
-                      <!--Project Team end-->
-                                  </div>
-                                  
-                              </div>
-                          </div>
-                      </section>
-              </div>
-              <!--month end-->
-              </div>
-              <!--overview end-->
-              
-              
 
-              <!-- project team  start -->
               <div class="row">
                   <div class="col-lg-4">
                       <!--project team start-->
                       <section class="panel">
-                        <div class="panel-body project-team">
-                            <div class="task-progress">
-                                  <h1>My Department</h1>  
-                            </div>
-                        </div>
+                            
+                            
                         <table class="table table-hover personal-task">
+
                               <tbody>
-                                    <g:each  var="user" in="${session?.departmentMap?.keySet()}">
+                                    <g:each  var="user" in="${request?.departmentMap?.keySet()}">
                                         <tr>
 
-                                            <!--<td>
-                                             <p class="badge bg-info1">2</p>
-                                          </td>-->
                                           <td style="width:10px;">
-                                            <span >
+                                            <span title="${user.getName()}">
                                             <g:link controller="user" action="view" id="${user.id}" ><img alt="" class="simple" src="${user.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="40"></g:link>
                                             <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
                                             </span>
+                                            <!--p class="profile-name"><h6>${user.getName()}</h6></p-->
+
                                           </td>
+
                                           <td>
-                                              <p class="profile-name">${user.getName()}</p>
-                                              <p class="profile-occupation">${user.getTitle()}</p>
-                                          </td>
-                                          <td>
-                                              <span class="badge bg-info" style="font-size:150%">${session?.departmentMap?.get(user)}</span>
+                                              <span class="badge bg-info" style="font-size:150%">${request?.departmentMap?.get(user)}</span>
                                           </td>
                                           <td>
                                                  <i style="padding-left:0px; color:blue; font-size:150%" class="fa fa-star"></i>
@@ -388,73 +289,17 @@
                       </section>
                       <!--Project Team end-->
                   </div>
-              <div class="row">
-                  <div class="col-lg-4">
-                      <!--project team start-->
-                      <section class="panel">
-                        <div class="panel-body project-team">
-                            <div class="task-progress">
-                                  <h1>Who is getting Stars?</h1>
-                            </div>
-                        </div>
-                        <table class="table table-hover personal-task">
-                              <tbody>
-                                <g:each  var="history" in="${session?.userDepartmentHistoryList}">
-                                    <tr>
 
-                                      <td style="width:10px;">
-                                        <span >
-                                        <img alt="" class="simple" src="${history.get(2).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="40">
-                                        </span>
-                                      </td>
-                                      <td style="text-align:left">
-                                          <p class="profile-occupation">${history.get(2).getName()}</p>
-                                          <p class="profile-name" style="font-size:100%"> ${history.get(0)} * ${history.get(1)}</p>
-                                      </td>
-                                      </tr>
-                              </g:each>
-
-                              </tbody>
-                          </table>
-                      </section>
-                      <!--Project Team end-->
-                  </div>
-                <g:each var="history" in="${session?.userHistoryList}">
-                    <div class="col">
-                      <div class="col-lg-4">
-                        <!--comment1-->
-                        <div class="panel panel-primary">
-
-                              <div class="panel-heading" style="padding:5px;"><img  alt="" src="${history.get(2).getUserImage()}" height="35" onError="this.src='${session?.userInfo?.getNoImage()}';"> ${history.get(2).getName()} gave you  <button class="btn btn-default" disabled> <g:if test="${history?.get(0) > 0}"> <i class="fa fa-thumbs-up"> </g:if><g:else> <i class="fa fa-thumbs-down"> </g:else></i></button> ${history.get(0)} trophies on ${history.get(3)}</div>
-
-                              <div class="panel-body">
-                                ${history.get(1)}
-
-                              </div>
-                        </div>
-                          <!--end comment1-->
-                      </div>
-                      </div>
-	
-                </g:each>
-
-                                         
-              </div>
-               
-
-          </section>
-         
-      </section>
-      <!--main content end-->
+                  </div>  
   </section>
   <!-- container section start -->
 
       <!-- javascripts -->
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui-1.9.2.custom.min.js"></script>
     <!-- bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
 
     
