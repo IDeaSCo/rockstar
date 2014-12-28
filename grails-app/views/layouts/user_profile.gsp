@@ -70,6 +70,7 @@
 				             <g:else>
                                              	<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
                                              </g:else>	
+                                             <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${userBadge.points}</span>
                                           </span>
                                  </g:each>
 

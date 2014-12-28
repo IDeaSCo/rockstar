@@ -16,4 +16,7 @@ class Badge {
     static constraints = {
         badgeName unique: true
     }
+    static mapping = {
+        sort "displayOrder"
+    }
 }

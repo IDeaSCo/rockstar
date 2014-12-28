@@ -96,7 +96,8 @@
                               <section class="panel">
                                <div id="mainwinner">
                                  <g:if test="${session?.starOfTheDayMap?.size() > 0}">
-                                   <div style="width:75px;"> <img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';">
+                                   <div style="width:75px;"> 
+                                   	<g:link controller="user" action="view" id="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.id}" ><img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
                                    	<span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserBadge()}</span>
                                    </div>
                                    
@@ -117,7 +118,7 @@
                                           </td>-->
                                           <td style="width:10px;">
                                             <span >
-                                            <img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
+                                            <g:link controller="user" action="view" id="${user.id}" ><img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
                                             <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
                                             </span>
                                           </td>
@@ -163,7 +164,8 @@
                               <section class="panel">
                                <div id="mainwinner">
                                  <g:if test="${session?.starOfTheWeekMap?.size() > 0}">
-                                   <div style="width:75px;"> <img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';">
+                                   <div style="width:75px;"> 
+                                   <g:link controller="user" action="view" id="${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).id}" ><img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
                                    <span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                    </div>
                                    <div style="padding-left:20px;"> <p class="profile-name">${session?.starOfTheWeekMap?.keySet().toList().first().getName()}</p> </div>
@@ -183,7 +185,7 @@
                                       </td>-->
                                       <td style="width:10px;">
                                         <span >
-                                        <img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
+                                        <g:link controller="user" action="view" id="${user.id}" ><img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
                                         <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
                                         </span>
                                       </td>
@@ -229,7 +231,8 @@
                               <section class="panel">
                                <div id="mainwinner">
                                  <g:if test="${session?.starOfTheMonthMap?.size() > 0}">
-                                   <div style="width:75px;"> <img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';">
+                                   <div style="width:75px;"> 
+                                   <g:link controller="user" action="view" id="${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).id}" ><img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
                                    <span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                    </div>
                                    <div style="padding-left:20px;"> <p class="profile-name">${session?.starOfTheMonthMap?.keySet().toList().first().getName()}</p> </div>
@@ -249,7 +252,7 @@
                                       </td>-->
                                       <td style="width:10px;">
                                         <span >
-                                        <img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
+                                        <g:link controller="user" action="view" id="${user.id}" ><img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
                                         <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
                                         </span>
                                       </td>
@@ -305,7 +308,7 @@
 						  </td>-->
 						  <td style="width:10px;">
 						    <span >
-							<img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
+							<g:link controller="user" action="view" id="${user.id}" ><img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
 							<span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
 						    </span>
 						  </td>
@@ -359,7 +362,7 @@
                                                       </td>-->
                                                       <td style="width:10px;">
                                                         <span >
-                                                        <img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';">
+                                                        <g:link controller="user" action="view" id="${user.id}" ><img alt="" class="simple" src="${user.getUserImage()}" height="40" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
                                                         <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${user.getUserBadge()}</span>
                                                         </span>
                                                       </td>
@@ -478,7 +481,7 @@
                                   <div class="badge-leader">
                                        <p>${badge.badgeName}</p>
                                       <g:each status="j" var="userBadge" in="${session?.badgeLeaderBoard?.get(badge)}">
-                                          <img src="${userBadge?.user?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" alt="" style="width:35px; height: 35px;">
+                                          <g:link controller="user" action="view" id="${userBadge?.user?.id}" ><img src="${userBadge?.user?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" alt="" style="width:35px; height: 35px;"/></g:link>
                                       </g:each>
                                   </div>
                                   <div style="clear:both"></div>
