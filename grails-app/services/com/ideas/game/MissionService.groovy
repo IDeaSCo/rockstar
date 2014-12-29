@@ -22,7 +22,7 @@ class MissionService {
         newMission.date = new Date();
         newMission.missionStatement = params.missionStatement;
         newMission.status = 1;
-        newMission.trophies = params.trohpies.toInteger();
+        newMission.trophies = params.trohies.toInteger();
         newMission.save(flush: true,  failOnError: true)
         
     }

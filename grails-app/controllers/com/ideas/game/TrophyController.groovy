@@ -15,10 +15,10 @@ class TrophyController {
             trophyService.saveTrophies(trophyDTO)
         }else{
 
-            if(trophyDTO.trohpies != null ) {
+            if(trophyDTO.trophies != null ) {
                 trophyDTO.reason = "Attempt at cheating the system from IP:" + request.getRemoteAddr()
                 println trophyDTO.reason;
-                trophyDTO.trohpies = -100;
+                trophyDTO.trophies = -100;
                 if (session.userInfo != null) {
                     trophyDTO.fromUserEmailID = session.userInfo.getEmail();
                     trophyDTO.toUserEmailID = session.userInfo.getEmail();
@@ -49,12 +49,12 @@ class TrophyController {
         if(params?.toUserEmailID?.equals("")){
             return redirect(uri: "/user/profile")
         }
-        if(params?.trohpies == null ||  params.trohpies.toInteger() == 0){
+        if(params?.trophies == null ||  params.trophies.toInteger() == 0){
             return redirect(uri: "/user/profile")
         }
-        if(params.trohpies.toInteger() != 1){
+        if(params.trophies.toInteger() != 1){
             if( !session.userInfo.isEligibleToGrantMoreOrLessThanOneStars() ){
-                println "User "+session.userInfo.getName()+" not eligible to grant "+params.trohpies.toInteger()+" stars.";
+                println "User "+session.userInfo.getName()+" not eligible to grant "+params.trophies.toInteger()+" stars.";
                 return redirect(uri: "/user/profile")
             }
         }
@@ -63,7 +63,7 @@ class TrophyController {
         if(!params?.toUserEmailID?.toLowerCase().equals(selfEmailID) ) {
             trophyDTO.fromUserEmailID = session.userInfo.getEmail();
             trophyDTO.toUserEmailID = params.toUserEmailID;
-            trophyDTO.trohpies = params.trohpies.toInteger();
+            trophyDTO.trophies = params.trophies.toInteger();
             trophyDTO.reason = params.reason;
             trophyDTO.badge = Badge.findById(params.badgeId)
             trophyService.saveTrophies(trophyDTO)

@@ -1,8 +1,8 @@
 package com.ideas.game
 import com.ideas.jasypt.GormEncryptedStringType
 
-class TrohpyReason {
-    TrohpyHistory historyID;
+class TrophyReason {
+    TrophyHistory historyID;
     String reason;
     
     static constraints = {

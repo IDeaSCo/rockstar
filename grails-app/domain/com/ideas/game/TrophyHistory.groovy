@@ -1,6 +1,6 @@
 package com.ideas.game
 
-class TrohpyHistory {
+class TrophyHistory {
     int id
     User user;
     Date date;

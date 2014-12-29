@@ -12,7 +12,7 @@ package com.ideas.game
 class TrophyDTO {
 	    String fromUserEmailID
         String toUserEmailID
-        int trohpies
+        int trophies
         String reason
         String badgeName
         Badge badge

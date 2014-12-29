@@ -168,7 +168,7 @@
                 alert("Mission Statement is mandatory.")
                 return false;
             }
-            if(!isNumber(document.getElementById("trohpies").value)) {
+            if(!isNumber(document.getElementById("trophies").value)) {
                 window.alert("Number of Stars on Offer should be a valid positive number.")
                 return false;
             }
@@ -192,7 +192,7 @@
             alert("Reason is mandatory.")
             return false;
         }
-        if(!isNumber(document.getElementById("trohpies").value)) {
+        if(!isNumber(document.getElementById("trophies").value)) {
             window.alert("Number of Stars should be a valid number.")
             return false;
         }

@@ -197,12 +197,12 @@
                                         <input type="text" class="form-control" placeholder="Type in the email address..." name="toUserEmailID" id="toUserEmailID"/>
 	                                    <textarea class="form-control" rows="7" placeholder="Type in your reason..." name="reason" id="reason"></textarea>
 	                                    <g:if test="${session.userInfo.isEligibleToGrantMoreOrLessThanOneStars()}">
-                                             <input type="text" class="form-control" placeholder="Type in no of stars..." name="trohpies" id="trohpies" value="1"/>
+                                             <input type="text" class="form-control" placeholder="Type in no of stars..." name="trophies" id="trophies" value="1"/>
                                         </g:if>
                                         <g:else>
-                                             <input type="hidden" class="form-control" placeholder="Type in no of stars..." name="trohpies" id="trohpies" value="1"/>
+                                             <input type="hidden" class="form-control" placeholder="Type in no of stars..." name="trophies" id="trophies" value="1"/>
                                         </g:else>
-                                        <g:select id="badgeId" name="badgeId"
+                                         <g:select id="badgeId" name="badgeId"
                                                   noSelection="${['-1':'Select One Category...']}"
                                                   from="${session.badges}"
                                                   optionValue="badgeName"
@@ -230,7 +230,7 @@
 	                                  <div class="modal-body" id="myBody" placeholder="Type @ for auto complete">
 	                                    <textarea class="form-control" rows="7" placeholder="Enter the mission description here?" name="missionStatement" id="missionStatement"></textarea>
 
-                                        <input type="text" class="form-control" placeholder="Type in the number of Stars on offer..." name="trohpies" id="trohpies" />
+                                        <input type="text" class="form-control" placeholder="Type in the number of Stars on offer..." name="trophies" id="trophies" />
 
 	                                  </div>
 	                                  <div class="modal-footer">
@@ -313,7 +313,7 @@
                 alert("Mission Statement is mandatory.")
                 return false;
             }
-            if(!isNumber(document.getElementById("trohpies").value)) {
+            if(!isNumber(document.getElementById("trophies").value)) {
                 window.alert("Number of Stars on Offer should be a valid positive number.")
                 return false;
             }
@@ -337,7 +337,7 @@
             alert("Reason is mandatory.")
             return false;
         }
-        if(!isNumber(document.getElementById("trohpies").value)) {
+        if(!isNumber(document.getElementById("trophies").value)) {
             window.alert("Number of Stars should be a valid number.")
             return false;
         }

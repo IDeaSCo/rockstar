@@ -45,7 +45,6 @@ class BadgeService {
         def badges = listAvailableBadges(department);
 
         badges.each { badge ->
-            println "Badge:"+badge.badgeName
             def listOfUsersBadges = UserBadges.findAll("from UserBadges as ub where ub.user.department.departmentName=:department and ub.badge.id=:badgeId order by ub.points desc " ,[department:department, badgeId: badge.id], [max: 3]);
             badgeMap.put(badge,listOfUsersBadges)
         }
@@ -65,7 +64,7 @@ class BadgeService {
         return listOfUsersBadges.get(0)
     }
     public def getUserFollower(def userBadge){
-        def listOfUsersBadges = UserBadges.findAll("from UserBadges as ub where ub.user.department.departmentName=:department and ub.badge.id=:badgeId and ub.points<:points order by ub.points desc " ,[department:userBadge.user.department.departmentName, badgeId: userBadge.badge.id, points:userBadge.points], [max: 1]);
+        def listOfUsersBadges = UserBadges.findAll("from UserBadges as ub where ub.user.department.departmentName=:department and ub.badge.id=:badgeId and ub.points<=:points and ub.user.id<>:userId order by ub.points desc " ,[department:userBadge.user.department.departmentName, badgeId: userBadge.badge.id, points:userBadge.points,userId:userBadge.user.id], [max: 1]);
         if(listOfUsersBadges.size()==0){
             return userBadge
         }
