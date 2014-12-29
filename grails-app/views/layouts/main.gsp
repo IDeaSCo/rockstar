@@ -468,13 +468,13 @@
                                   	      <span class="fa-stack fa-lg" title="${badge.badgeName} - Level - ${session?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelName()}">
                                   	</g:if>
                                   	<g:else>
-                                  		<span class="fa-stack fa-lg" title="${badge.badgeName}">
+                                  		<span class="fa-stack fa-lg" title="${badge.badgeName} - Level - Amature">
                                   	</g:else>
 						<g:if test="${session?.badgeLeaderBoard?.get(badge).size()>0}">
 							<i class="fa fa-circle fa-stack-2x" style="color: ${session?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelColor()};"></i>
 						</g:if>
 						<g:else>
-							<i class="fa fa-circle fa-stack-2x" ></i>
+							<i class="fa fa-circle fa-stack-2x" style="color: #008000"></i>
 						</g:else>
 				             	<g:if test="${badge.isEvil}">
                                              		<i class="fa ${badge.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
@@ -505,32 +505,6 @@
 
 
   <script>
-
-      //knob
-      $(function() {
-        $(".knob").knob({
-          'draw' : function () {
-            $(this.i).val(this.cv + '%')
-          }
-        })
-      });
-
-      //carousel
-      $(document).ready(function() {
-          $("#owl-slider").owlCarousel({
-              navigation : true,
-              slideSpeed : 300,
-              paginationSpeed : 400,
-              singleItem : true
-
-          });
-      });
-
-      //custom select box
-
-      $(function(){
-          $('select.styled').customSelect();
-      });
 
   </script>
 

@@ -144,14 +144,6 @@
   </section>
   <!-- container section start -->
 
-      <!-- javascripts -->
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
-    <!-- bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-
-
     
   <script>
   	function setReasonDivContent(divId, badgeName){
@@ -159,89 +151,7 @@
   		document.getElementById("work").innerHTML=document.getElementById("work_"+divId).innerHTML;  		
   		document.getElementById("work_title").innerHTML="Badge - "+badgeName;  		
   	}
-    function isValidMissionInput(){
-
-            var missionStatement =document.getElementById("missionStatement").value;
-
-
-            if(missionStatement.trim().length < 1) {
-                alert("Mission Statement is mandatory.")
-                return false;
-            }
-            if(!isNumber(document.getElementById("trophies").value)) {
-                window.alert("Number of Stars on Offer should be a valid positive number.")
-                return false;
-            }
-
-            document.getElementById("createMission").submit();
-    }
-
-    function isValidInput(){
-
-        var emailIDContent =document.getElementById("toUserEmailID").value;
-        var reason =document.getElementById("reason").value;
-
-        var badgeId =document.getElementById("badgeId").value;
-
-
-        if(emailIDContent.trim().length < 1) {
-            alert("EmailID is mandatory.")
-            return false;
-        }
-        if(reason.trim().length < 1) {
-            alert("Reason is mandatory.")
-            return false;
-        }
-        if(!isNumber(document.getElementById("trophies").value)) {
-            window.alert("Number of Stars should be a valid number.")
-            return false;
-        }
-        if(badgeId == -1){
-            alert("Badge is mandatory.")
-            return false;
-        }
-
-        document.getElementById("updateTrophies").submit();
-
-    }
-
-    function isNumber(n) {
-          return !isNaN(parseFloat(n)) && isFinite(n);
-    }
-
-	function setEmail(email)
-	{
-		document.getElementById("toUserEmailID").value=email;
-	}
-	
-      //knob
-      $(function() {
-        $(".knob").knob({
-          'draw' : function () { 
-            $(this.i).val(this.cv + '%')
-          }
-        })
-      });
-
-      //carousel
-      $(document).ready(function() {
-          $("#owl-slider").owlCarousel({
-              navigation : true,
-              slideSpeed : 300,
-              paginationSpeed : 400,
-              singleItem : true
-
-          });
-      });
-
-      //custom select box
-
-      $(function(){
-          $('select.styled').customSelect();
-      });
-
-
-  </script>
+</script>
 
   </body>
 </html>

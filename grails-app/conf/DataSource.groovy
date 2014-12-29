@@ -1,8 +1,8 @@
 dataSource {
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
-    username = "admin"
-    password = "admin"
+    username = ""
+    password = ""
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -14,19 +14,19 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost:3309/game?autoReconnect=true"
+            url = ""
         }
     }
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost:3309/game?autoReconnect=true"
+            url = ""
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost:3309/game?autoReconnect=true"
+            url = ""
             pooled = true
             properties {
                maxActive = -1

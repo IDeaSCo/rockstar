@@ -27,16 +27,18 @@ class BootStrap {
         createBadge("fa-file-movie-o","Presentation Champ",false,100,300,500,6);
         createBadge("fa-sort-alpha-asc","Process Champ",false,50,300,900,7);
         createBadge("fa-thumbs-up","Appreciator",false,50,300,900,8);
-        createBadge("fa-scissors","Build Breaker",true,0,0,0,100);
-        createBadge("fa-bomb","Spillover Champ",true,0,0,0,101);
+        createBadge("fa-scissors","Build Breaker",true,50,150,300,100);
+        createBadge("fa-bolt","Spillover Champ",true,60,200,400,101);
         createBadge("fa-maxcdn","Mission Impossible",false,100,500,1000,9);
         createBadge("fa-stack-overflow","Community Contributor",false,100,300,500,10);
         createBadge("fa-wordpress","Blogger",false,100,400,900,11);
         createBadge("fa-pied-piper-alt","Cheater",true,100,200,300,102);
         createBadge("fa-bug","Code Violator",true,100,200,300,103);
         createBadge("fa-magic","Code Saviour",false,100,200,300,12);
-        createBadge("fa-cogs","Process Violator",true,100,200,300,104);
+        createBadge("fa-cogs","Process Violator",true,50,200,400,104);
         createBadge("fa-check","Default",false,100,200,300,99);
+        createBadge("fa-fire-extinguisher","Fire Fighter",false,100,200,300,13);
+        createBadge("fa-bug","Bug Master",true,100,200,300,105);
     }
 
     def setupCommonBadges(){
