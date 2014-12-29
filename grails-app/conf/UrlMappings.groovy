@@ -6,12 +6,12 @@ class UrlMappings {
 				// apply constraints here
 			}
 		}
-                "/trophy"{
-                    action = [POST:"save"]
-                  }
+
+        "/trophy"{
+            action = [POST:"save"]
+          }
 		"/"(view:"/index")
                 "/index"(view:"/index")
-                "/user"(view:"/user")
-		"500"(view:'/user')
+		"500"(view:'/index')
 	}
 }

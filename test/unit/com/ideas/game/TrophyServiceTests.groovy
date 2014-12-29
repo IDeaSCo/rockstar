@@ -11,7 +11,5 @@ import org.junit.*
 @TestFor(TrophyService)
 class TrophyServiceTests {
 
-    void testSomething() {
-        fail "Implement me"
-    }
+
 }
