@@ -41,7 +41,7 @@
 		    </div>
 
 		    <a href="#" class="logo">IDeaS Rock Stars</a>
-            <a class="badge bg-important" href="badges.html" >Badges</a>
+            <a class="badge bg-important" href="levels.html" >Levels</a>
 		    <div class="top-nav notification-row">
 
 			<ul class="nav pull-right top-menu">
@@ -464,7 +464,12 @@
                           <p style="word-spacing: 15px;">
                               <div>
                                   <div class="badge-icon">
-                                        <span class="fa-stack fa-lg" title="${badge.badgeName}">
+                                  	<g:if test="${session?.badgeLeaderBoard?.get(badge).size()>0}">
+                                  	      <span class="fa-stack fa-lg" title="${badge.badgeName} - Level - ${session?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelName()}">
+                                  	</g:if>
+                                  	<g:else>
+                                  		<span class="fa-stack fa-lg" title="${badge.badgeName}">
+                                  	</g:else>
 						<g:if test="${session?.badgeLeaderBoard?.get(badge).size()>0}">
 							<i class="fa fa-circle fa-stack-2x" style="color: ${session?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelColor()};"></i>
 						</g:if>

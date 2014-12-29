@@ -48,7 +48,7 @@
 
             <!--logo start-->
             <g:link controller="index" class="logo">IDeaS Rock Stars</g:link>
-            <g:link controller="badges.html" class="badge bg-important">Levels</g:link>
+            <g:link controller="levels.html" class="badge bg-important">Levels</g:link>
             
             <!--logo end-->
  
@@ -59,7 +59,7 @@
 <!--container starts-->
 <div class="container">
 <!--right side content starts-->
-<div id="fluid" class="col-lg-10">
+<div id="fluid" class="col-lg-9">
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   		<g:each status="i" var="userBadge" in="${request?.userBadges}">
@@ -72,18 +72,47 @@
 			<g:else>
 				<a data-toggle="collapse" data-parent="#accordion" href="#collapse${userBadge.badge.id}" aria-expanded="false" aria-controls="collapse${userBadge.badge.id}">
 			</g:else>
-			  	<span class="fa-stack fa-lg" title="${userBadge.badge.badgeName}">
-				<i class="fa fa-circle fa-stack-2x" style="color: ${userBadge.getLevelColor()};"></i>
-				<g:if test="${userBadge.badge.isEvil}">
-					<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
-				</g:if>	
-			        <g:else>
-					<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
-			     	</g:else>	
-			  </span>
-			  		${userBadge.badge.badgeName}
+			  	<table style="width:100%">
+			  	<tr>
+			  	<td style="width:10%">
+					<span class="fa-stack fa-lg" title="${userBadge.badge.badgeName} - Level - ${userBadge.getLevelName()}">
+						<i class="fa fa-circle fa-stack-2x" style="color: ${userBadge.getLevelColor()};"></i>
+						<g:if test="${userBadge.badge.isEvil}">
+							<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+						</g:if>	
+						<g:else>
+							<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+						</g:else>	
+					</span>
+			  	</td>
+			  	<td style="width:80%">
+				      <div class="progress" style="width:95%">
+					<div class="progress-bar" role="progressbar" aria-valuenow="${userBadge.points}" aria-valuemin="0" aria-valuemax="${userBadge.getLevelMaxPoints()}" style="width: ${userBadge.getLevelProgress()}%;">
+					  ${userBadge.points}
+					</div>				
+				      </div>
+				${userBadge.badge.badgeName}
+				</td>
+				<td>${userBadge.getLevelMaxPoints()}</td>
+				<td style="width:10%">
+					<span class="fa-stack fa-lg" title="${userBadge.badge.badgeName} - Level - ${userBadge.getLevelName(userBadge.getLevelMaxPoints()+1)}" >
+						<i class="fa fa-circle fa-stack-2x" style="color: ${userBadge.getLevelColor(userBadge.getLevel()+1)};"></i>
+						<g:if test="${userBadge.badge.isEvil}">
+							<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+						</g:if>	
+						<g:else>
+							<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+						</g:else>	
+					</span>
+				</td>
+				</tr>
+				</table>
+			      
+			      
 			</a>
 		      </h4>
+		      
+		      
 		    </div>
 		    <g:if test="${i == 0}">
 		    	<div id="collapse${userBadge.badge.id}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading${userBadge.badge.id}">
@@ -163,7 +192,7 @@
                           </div>
                                   <g:each status="i" var="userBadge" in="${request?.userBadges}">
                                      
-                                          <span class="fa-stack fa-lg" title="${userBadge.badge.badgeName}">
+                                          <span class="fa-stack fa-lg" title="${userBadge.badge.badgeName} - Level - ${userBadge.getLevelName()}">
 						<i class="fa fa-circle fa-stack-2x" style="color: ${userBadge.getLevelColor()};"></i>
 				             	<g:if test="${userBadge.badge.isEvil}">
                                              		<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#000000;"></i>

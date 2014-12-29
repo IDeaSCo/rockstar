@@ -48,7 +48,7 @@
 
             <!--logo start-->
             <g:link controller="index" class="logo">IDeaS Rock Stars</g:link>            
-            <g:link controller="badges.html" class="badge bg-important">Levels</g:link>
+            <g:link controller="levels.html" class="badge bg-important">Levels</g:link>
             <!--logo end-->
  
             
@@ -62,7 +62,7 @@
                 <div>
                     <p style="word-spacing: 15px; padding: 10px;">
                                   <g:each status="ii" var="userBadge" in="${request?.userBadges}">
-                                          <span class="fa-stack fa-lg" title="${userBadge.badge.badgeName}" onMouseOver="setReasonDivContent(${userBadge.badge.id},'${userBadge.badge.badgeName}')">
+                                          <span class="fa-stack fa-lg" title="${userBadge.badge.badgeName} - Level - ${userBadge.getLevelName()}" onMouseOver="setReasonDivContent(${userBadge.badge.id},'${userBadge.badge.badgeName}')">
 				             <i class="fa fa-circle fa-stack-2x" style="color: ${userBadge.getLevelColor()};"></i>
 				             <g:if test="${userBadge.badge.isEvil}">
                                              	<i class="fa ${userBadge.badge.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
