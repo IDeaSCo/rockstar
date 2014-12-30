@@ -41,6 +41,7 @@
                     <!--logo start-->
                     <g:link controller="index" class="logo">IDeaS Rock Stars</g:link>
                     <g:link controller="levels.html" class="badge bg-important">Levels</g:link>
+                    <g:link controller="badge" action="list" class="badge bg-important">Badges</g:link>
 
                     <!--logo end-->
 
@@ -83,11 +84,46 @@
 
                                 <td><g:formatBoolean boolean="${badgeInstance?.isEvil}" /></td>
 
-                                <td>${fieldValue(bean: badgeInstance, field: "levelOnePoints")}</td>
+                                <td>
 
-                                <td>${fieldValue(bean: badgeInstance, field: "levelTwoPoints")}</td>
+                                         <span class="fa-stack fa-lg" >
+                                             <i class="fa fa-circle fa-stack-2x" style="color: #cd7f32"></i>
+                                             <g:if test="${badgeInstance.isEvil}">
+                                                <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+                                             </g:if>
+                                             <g:else>
+                                                <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+                                             </g:else>
+                                        </span>
+                                     ${fieldValue(bean: badgeInstance, field: "levelOnePoints")}
 
-                                <td>${fieldValue(bean: badgeInstance, field: "levelThreePoints")}</td>
+                                     </td>
+
+                                <td>
+                                         <span class="fa-stack fa-lg" >
+                                             <i class="fa fa-circle fa-stack-2x" style="color: #C0C0C0"></i>
+                                             <g:if test="${badgeInstance.isEvil}">
+                                                <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+                                             </g:if>
+                                             <g:else>
+                                                <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+                                             </g:else>
+                                        </span>
+
+                                ${fieldValue(bean: badgeInstance, field: "levelTwoPoints")}</td>
+
+                                <td>
+                                         <span class="fa-stack fa-lg" >
+                                             <i class="fa fa-circle fa-stack-2x" style="color: #FFD700"></i>
+                                             <g:if test="${badgeInstance.isEvil}">
+                                                <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+                                             </g:if>
+                                             <g:else>
+                                                <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+                                             </g:else>
+                                        </span>
+
+                                ${fieldValue(bean: badgeInstance, field: "levelThreePoints")}</td>
 
                                 <td>${fieldValue(bean: badgeInstance, field: "displayOrder")}</td>
                             </tr>
@@ -99,7 +135,9 @@
              </div>
                         <g:form >
                             <fieldset class="buttons">
-                                <g:actionSubmit class="create" action="create" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                                <g:if test="${session.userInfo.isAdmin}">
+                                    <g:actionSubmit class="create" action="create" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                               </g:if>
                             </fieldset>
                         </g:form>
           </section>

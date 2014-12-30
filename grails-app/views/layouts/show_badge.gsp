@@ -41,6 +41,7 @@
                     <!--logo start-->
                     <g:link controller="index" class="logo">IDeaS Rock Stars</g:link>
                     <g:link controller="levels.html" class="badge bg-important">Levels</g:link>
+                    <g:link controller="badge" action="list" class="badge bg-important">Badges</g:link>
 
                     <!--logo end-->
 
@@ -59,9 +60,45 @@
                         <tr><td><g:message code="badge.badgeName.label" default="Badge Name" /></td><td><g:fieldValue bean="${badgeInstance}" field="badgeName"/></td></tr>
                         <tr><td><g:message code="badge.badgeIcon.label" default="Badge Icon" /></td><td><g:fieldValue bean="${badgeInstance}" field="badgeIcon"/></td></tr>
                         <tr><td><g:message code="badge.isEvil.label" default="Is Evil" /></td><td><g:formatBoolean boolean="${badgeInstance?.isEvil}" /></td></tr>
-                        <tr><td><g:message code="badge.levelOnePoints.label" default="Bronze" /></td><td><g:fieldValue bean="${badgeInstance}" field="levelOnePoints"/></td></tr>
-                        <tr><td><g:message code="badge.levelTwoPoints.label" default="Silver" /></td><td><g:fieldValue bean="${badgeInstance}" field="levelTwoPoints"/></td></tr>
-                        <tr><td><g:message code="badge.levelThreePoints.label" default="Gold" /></td><td><g:fieldValue bean="${badgeInstance}" field="levelThreePoints"/></td></tr>
+                        <tr><td><g:message code="badge.levelOnePoints.label" default="Bronze" /></td>
+                            <td>
+                                 <span class="fa-stack fa-lg" >
+                                     <i class="fa fa-circle fa-stack-2x" style="color: #cd7f32"></i>
+                                     <g:if test="${badgeInstance.isEvil}">
+                                        <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+                                     </g:if>
+                                     <g:else>
+                                        <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+                                     </g:else>
+                                </span>
+
+                            <g:fieldValue bean="${badgeInstance}" field="levelOnePoints"/></td>
+                        </tr>
+                        <tr><td><g:message code="badge.levelTwoPoints.label" default="Silver" /></td><td>
+                                 <span class="fa-stack fa-lg" >
+                                     <i class="fa fa-circle fa-stack-2x" style="color: #C0C0C0"></i>
+                                     <g:if test="${badgeInstance.isEvil}">
+                                        <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+                                     </g:if>
+                                     <g:else>
+                                        <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+                                     </g:else>
+                                </span>
+
+
+                        <g:fieldValue bean="${badgeInstance}" field="levelTwoPoints"/></td></tr>
+                        <tr><td><g:message code="badge.levelThreePoints.label" default="Gold" /></td><td>
+                                 <span class="fa-stack fa-lg" >
+                                     <i class="fa fa-circle fa-stack-2x" style="color: #FFD700"></i>
+                                     <g:if test="${badgeInstance.isEvil}">
+                                        <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+                                     </g:if>
+                                     <g:else>
+                                        <i class="fa ${badgeInstance.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+                                     </g:else>
+                                </span>
+
+                            <g:fieldValue bean="${badgeInstance}" field="levelThreePoints"/></td></tr>
                         <tr><td><g:message code="badge.displayOrder.label" default="Display Order" /></td><td><g:fieldValue bean="${badgeInstance}" field="displayOrder"/></td></tr>
 
                       </table>
@@ -70,7 +107,9 @@
 
                                 <g:hiddenField name="id" value="${badgeInstance?.id}" />
                                 <fieldset class="buttons">
+                                <g:if test="${session.userInfo.isAdmin}">
                                     <g:actionSubmit class="edit" action="edit" id="${badgeInstance?.id}" value="${message(code: 'default.button.edit.label', default: 'Edit')}" />
+                                </g:if>
                                     <g:actionSubmit class="list" action="list" value="${message(code: 'default.button.list.label', default: 'List')}" />
                                 </fieldset>
                         </g:form>

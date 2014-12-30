@@ -41,6 +41,7 @@
                     <!--logo start-->
                     <g:link controller="index" class="logo">IDeaS Rock Stars</g:link>
                     <g:link controller="levels.html" class="badge bg-important">Levels</g:link>
+                    <g:link controller="badge" action="list" class="badge bg-important">Badges</g:link>
 
                     <!--logo end-->
 
@@ -68,7 +69,9 @@
                                 <g:render template="form"/>
                             </fieldset>
                             <fieldset class="buttons">
-                                <g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                                <g:if test="${session.userInfo.isAdmin}">
+                                    <g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                                </g:if>
                                 <g:actionSubmit class="save" action="show" id="${badgeInstance?.id}" value="${message(code: 'default.button.cancel.label', default: 'Cancel')}" />
                             </fieldset>
                         </g:form>

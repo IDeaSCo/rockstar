@@ -49,6 +49,7 @@
             <!--logo start-->
             <g:link controller="index" class="logo">IDeaS Rock Stars</g:link>            
             <g:link controller="levels.html" class="badge bg-important">Levels</g:link>
+            <g:link controller="badge" action="list" class="badge bg-important">Badges</g:link>
             <!--logo end-->
  
             

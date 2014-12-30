@@ -42,6 +42,7 @@
 
 		    <a href="#" class="logo">IDeaS Rock Stars</a>
             <a class="badge bg-important" href="levels.html" >Levels</a>
+            <g:link controller="badge" action="list" class="badge bg-important">Badges</g:link>
 		    <div class="top-nav notification-row">
 
 			<ul class="nav pull-right top-menu">

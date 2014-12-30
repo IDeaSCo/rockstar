@@ -50,34 +50,48 @@
               <div class="col-lg-9">
               <p/>
               <p/><p/><p/>
-                    <div id="create-badge" class="content scaffold-edit" role="main">
-                        <h1><g:message code="default.create.label" args="[entityName]" /></h1>
-                        <g:if test="${flash.message}">
-                        <div class="message" role="status">${flash.message}</div>
-                        </g:if>
-                        <g:hasErrors bean="${badgeInstance}">
-                        <ul class="errors" role="alert">
-                            <g:eachError bean="${badgeInstance}" var="error">
-                            <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
-                            </g:eachError>
-                        </ul>
-                        </g:hasErrors>
-                        <g:form  action="save">
-                            <fieldset class="form">
-                                <g:render template="form"/>
-                            </fieldset>
-                            <fieldset class="buttons">
-                            <g:if test="${session.userInfo.isAdmin}">
-                                <g:submitButton name="create" action="save" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-                            </fieldset>
-                                <g:actionSubmit class="list" action="list" value="${message(code: 'default.button.cancel.label', default: 'Cancel')}" />
+                    <div class="panel panel-default">
+                      <!-- Default panel contents -->
+                      <g:form action="save">
+                          <div class="panel-heading">${session.userInfo.department.departmentName}</div>
 
+
+                                <g:if test="${flash.message}">
+                                <div class="message" role="status">${flash.message}</div>
+                                </g:if>
+                                <table class="table">
+                                    <thead >
+                                        <tr>
+                                            <th><g:message code="departmentBadges.badge.label" default="Badge" /></th>
+                                            <th><g:message code="departmentBadges.available.label" default="Available" /></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <g:hiddenField name="badge_id" value="-1" />
+                                    <g:each in="${badgeList}" status="i" var="badge">
+                                        <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+
+                                            <td>${fieldValue(bean: badge, field: "badgeName")}</td>
+
+                                            <td><g:checkBox name="badge_id" value="${badge.id}" checked="${departmentBadgesList.contains(badge)}" disabled="${defaultDepartmentBadgeList.contains(badge)}"/></td>
+
+                                        </tr>
+                                    </g:each>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <g:if test="${session.userInfo.isAdmin}">
+                                  <fieldset class="buttons">
+                                    <g:actionSubmit class="save" action="save" value="${message(code: 'default.button.save.label', default: 'Save')}" />
+                                </fieldset>
                             </g:if>
                         </g:form>
 
                     </div>
 
-             </div>
+           </div>
           </section>
 	</body>
 </html>

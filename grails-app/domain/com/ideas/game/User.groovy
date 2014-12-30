@@ -11,6 +11,7 @@ class User {
     String title
     int trophies
     String accountName
+    boolean isAdmin
     
     static constraints = {
         email unique:true
