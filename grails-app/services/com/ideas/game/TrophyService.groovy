@@ -11,29 +11,26 @@ class TrophyService  {
         this.dataSource = dataSource;
     }
 
-    private int negativeTrophiesShouldOnlyAffectTheBadge(int trophies){
-        if(trophies < 0){
-            return 0;
-        }
-        return trophies;
-    }
-    def saveTrophies(TrophyDTO trophyDTO) {
 
+    def saveTrophies(TrophyDTO trophyDTO) {
+        trophyDTO.trophies = Math.abs(trophyDTO.trophies)
 
         User fromUser = getFromUser(trophyDTO)
         User toUser = getToUser(trophyDTO)
         
         TrophyHistory history = new TrophyHistory();
         history.setDate(new Date());
-        int trophies = negativeTrophiesShouldOnlyAffectTheBadge(trophyDTO.getTrophies());
+
 
         saveTrophyHistory(history, trophyDTO, toUser, fromUser, trophies)
         
         TrophyReason reason = new TrophyReason();
         saveHistoryReason(reason, history, trophyDTO)
 
-        toUser.setTrophies(toUser.getTrophies()+trophies);
-        toUser.save(flush: true,  failOnError: true)
+        if(!trophyDTO.badge.isEvil) {
+            toUser.setTrophies(toUser.getTrophies() + trophies);
+            toUser.save(flush: true, failOnError: true)
+        }
 
         BadgeService badgeService = new BadgeService();
         badgeService.updateUserBadePoints(toUser,trophyDTO.badge,trophyDTO.getTrophies())
