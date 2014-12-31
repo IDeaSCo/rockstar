@@ -179,7 +179,7 @@
                             <div class="col-lg-4 col-sm-4 profile-widget-name">
                               <h4>${session?.userInfo?.getName()}</h4>               
                               <div class="follow-ava">
-                                  <a href="user/view/${session?.userInfo?.id}" ><img src="${session?.userInfo?.getUserImage()}" alt="" onError="this.src='${session?.userInfo?.getNoImage()}';"></a>
+                                 <g:link controller="user" action="view" id="${session?.userInfo?.id}" > <img src="${session?.userInfo?.getUserImage()}" alt="" onError="this.src='${session?.userInfo?.getNoImage()}';"></g:link>
                                   
                               </div>
                               <h6>${session?.userInfo?.getTitle()}</h6>
