@@ -46,14 +46,10 @@
 		    <div class="top-nav notification-row">
 
 			<ul class="nav pull-right top-menu">
-
 			    <li class="dropdown" style="top:5px;">
-
 					<g:link controller="user" action="profile" >
 						<span class="profile-ava">
-
-						    <img alt="" src="${session?.userInfo?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="35">
-						    <span class="badge bg-important" style="position: relative;left: 30px;top: -15px;background: #FF4F2D;">${session?.userInfo?.getUserBadge()}</span>
+						    <img alt="" src="${session?.userInfo?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="35" width="30">
 						</span>
 						<span class="username">${session?.userInfo?.getName()}
 						</span>

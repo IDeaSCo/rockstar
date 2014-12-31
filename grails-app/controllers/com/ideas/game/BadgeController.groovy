@@ -59,7 +59,7 @@ class BadgeController {
             redirect(action: "list")
             return
         }
-            def badgeInstance = Badge.get(id)
+        def badgeInstance = Badge.get(id)
         if (!badgeInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'badge.label', default: 'Badge'), id])
             redirect(action: "list")
@@ -69,5 +69,32 @@ class BadgeController {
         [badgeInstance: badgeInstance]
     }
 
+    def update(Long id, Long version) {
+        def badgeInstance = Badge.get(id)
+        if (!badgeInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'badge.label', default: 'Badge'), id])
+            redirect(action: "list")
+            return
+        }
 
+        if (version != null) {
+            if (badgeInstance.version > version) {
+                badgeInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
+                        [message(code: 'badge.label', default: 'Badge')] as Object[],
+                        "Another user has updated this Badge while you were editing")
+                render(view: "edit", model: [badgeInstance: badgeInstance])
+                return
+            }
+        }
+
+        badgeInstance.properties = params
+
+        if (!badgeInstance.save(flush: true)) {
+            render(view: "edit", model: [badgeInstance: badgeInstance])
+            return
+        }
+
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'badge.label', default: 'Badge'), badgeInstance.id])
+        redirect(action: "show", id: badgeInstance.id)
+    }
 }
