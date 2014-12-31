@@ -40,8 +40,7 @@ class DepartmentBadgesController {
             params.badge_id.each() {
                 if (it != -1 + "") {
                     Badge badge = Badge.findById(it);
-
-                    if (DepartmentBadges.findByBadge(badge) == null) {
+                    if (DepartmentBadges.findByBadgeAndDepartment(badge,session.userInfo.department) == null) {
                         DepartmentBadges departmentBadges = new DepartmentBadges();
                         departmentBadges.department = session.userInfo.department;
                         departmentBadges.badge = Badge.findById(it)
