@@ -13,4 +13,4 @@ branches:
 only:
 - master
 
-script: grails clean && grails upgrade --non-interactive && grails test-app --non-interactive && grails war --non-interactive
+script: ./grailsw refresh-dependencies && ./grailsw clean && ./grailsw upgrade --non-interactive && ./grailsw test-app --non-interactive && ./grailsw war --non-interactive
