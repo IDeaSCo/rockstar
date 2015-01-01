@@ -63,3 +63,42 @@ This application makes use of Gamification techniques for Team Engagement and Te
   - The goal is to earn Angel badges.
   - Devil badges represents activities that one should not be performing.
 ![Badges](https://ashishparkhi.files.wordpress.com/2015/01/new-badge-list.png?w=930)
+
+####Leader Board
+- Department Leader Board has two sections
+ - Left pannel shows the top three Badge leaders.
+ - Right pannel shows
+  - Star of the Day ( *Top three individuals, who earned most stars in a day.*)
+   - Star of the Week.
+   - Star of the Month.
+   - Most Appreciated ( *Top three individuals who have earned most stars so far.*)
+   - Most Appreciative ( *Individuals who appreciate other’s contribution. Encourages individuals to recognize other’s contributions.* )
+   - Open Missions ( *Open missions/quests are visible across departments. Quests help in creating the culture of taking initiatives, being pro-active; helps in earning more Stars. Encourages cross department collaboration in addressing issues.* )
+
+![Leaderboard](https://ashishparkhi.files.wordpress.com/2015/01/new-leader-board.png?w=930) 
+
+####Self User Profile
+Clicking on the user name on the right top corner brings the user on the User Profile page. The user profile page also two sections
+ - Left Pannel shows
+  - User section
+    - Total number of stars earned so far.
+    - All the badges earned by the user. The color represents the badge level.
+    - Appreciate someone by clicking on thumbs up icon.
+    - Create new mission by clicking on the bulls eye icon.
+  - Department Section
+    - List all the users in the department in descending order of the number of stars received.
+    - Appreciate the individual using the thumbs up icon.
+ - Right Pannel
+  - Accordian shows all the badges that the user has received.
+  - Progress bar shows the number of stars received for a given badge and the number of stars to achieve to reach to the next level of the badge.
+  - Photos
+    - The middle photo is of the self user.
+    - The left hand side photo represents the user who is just ahead of the self user.  
+    - The right hand side photo represents the user who is just behind the self user.    - 
+
+![User Profile](https://ashishparkhi.files.wordpress.com/2015/01/new-user-profile.png?w=930)
+
+####User Details
+Click on any image on any screen and you would land up on the user details screen. The screen shows all the badges earned by the particular user. 
+ - Hover on the badge and you will see the reason why the user received stars for the concerned badge.
+![User Details](https://ashishparkhi.files.wordpress.com/2015/01/new-user-details.png?w=930)
