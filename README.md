@@ -103,6 +103,9 @@ Click on any image on any screen and you would land up on the user details scree
  - Hover on the badge and you will see the reason why the user received stars for the concerned badge.
 ![User Details](https://ashishparkhi.files.wordpress.com/2015/01/new-user-details.png?w=930)
 
+###Downloads
+- [Rock Star - Version 1.0.0](https://github.com/IDeaSCo/rockstar/releases/download/v1.0.0/rockstar-1.0.0.war)
+
 ###Bots
 ####Jenkins
  - Extended version of [Jenkins CI-Plugin](https://github.com/jenkinsci/ci-game-plugin) is available as [rockstar-plugins-jenkins-ci-game](https://github.com/IDeaSCo/rockstar-plugins-jenkins-ci-game)
