@@ -102,3 +102,11 @@ Clicking on the user name on the right top corner brings the user on the User Pr
 Click on any image on any screen and you would land up on the user details screen. The screen shows all the badges earned by the particular user. 
  - Hover on the badge and you will see the reason why the user received stars for the concerned badge.
 ![User Details](https://ashishparkhi.files.wordpress.com/2015/01/new-user-details.png?w=930)
+
+###Bots
+####Jenkins
+ - Extended version of [Jenkins CI-Plugin](https://github.com/jenkinsci/ci-game-plugin) is available as [rockstar-plugins-jenkins-ci-game](https://github.com/IDeaSCo/rockstar-plugins-jenkins-ci-game)
+ - Extended version of Jenkins CI-Plugin would send stars to Rock Star App.
+
+####Rally
+ - WIP
