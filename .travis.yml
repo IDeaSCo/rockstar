@@ -29,4 +29,4 @@ deploy:
   on:
     tags: true
     all_branches: true
-    repo:IDeaSCo/rockstar
+    repo: IDeaSCo/rockstar
