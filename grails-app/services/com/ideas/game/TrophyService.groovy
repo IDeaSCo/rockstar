@@ -28,7 +28,7 @@ class TrophyService  {
         saveHistoryReason(reason, history, trophyDTO)
 
         if(!trophyDTO.badge.isEvil) {
-            toUser.setTrophies(toUser.getTrophies() + trophies);
+            toUser.setTrophies(toUser.getTrophies() + trophyDTO.trophies);
             toUser.save(flush: true, failOnError: true)
         }
 
