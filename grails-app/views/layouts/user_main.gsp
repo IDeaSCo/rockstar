@@ -141,7 +141,7 @@
 				<div style="background: #B5A63F; padding: 15px;">
 				    <h4 style="color:#fff">${session?.userInfo?.getName()}</h4>
 				    <div>					
-					<a href="user/view/${session?.userInfo?.id}" ><img src="${session?.userInfo?.getUserImage()}" alt="" onError="this.src='${session?.userInfo?.getNoImage()}';" width="75px" height="75px;" ></a>
+					<g:link controller="user" action="view" id="${session?.userInfo?.id}" > <img src="${session?.userInfo?.getUserImage()}" alt="" onError="this.src='${session?.userInfo?.getNoImage()}';" width="75px" height="75px;" ></g:link>
 				    </div>
 				    <h6 style="color:#fff">${session?.userInfo?.title}</h6>
 				    <p style="font-size: 25px;font-weight: bolder;color: #fff;">${userBadge.points} <i style="padding-left:10px; color:blue;" class="icon_star"></i>

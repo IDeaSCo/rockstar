@@ -124,7 +124,7 @@
                             <div class="col-lg-4 col-sm-4 profile-widget-name">
                               <h4>${request?.userInstance?.getName()}</h4>               
                               <div class="follow-ava">
-                                  <a href="user/view/${request?.userInstance?.id}" ><img src="${request?.userInstance?.getUserImage()}" alt="" onError="this.src='${request?.userInstance?.getNoImage()}';"></a>
+                                 <g:link controller="user" action="view" id="${request?.userInstance?.id}" > <img src="${request?.userInstance?.getUserImage()}" alt="" onError="this.src='${request?.userInstance?.getNoImage()}';"></g:link>
                                   
                               </div>
                               <h6>${request?.userInstance?.getTitle()}</h6>

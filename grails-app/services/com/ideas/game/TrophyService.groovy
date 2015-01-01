@@ -22,7 +22,7 @@ class TrophyService  {
         history.setDate(new Date());
 
 
-        saveTrophyHistory(history, trophyDTO, toUser, fromUser, trophies)
+        saveTrophyHistory(history, trophyDTO, toUser, fromUser)
         
         TrophyReason reason = new TrophyReason();
         saveHistoryReason(reason, history, trophyDTO)
@@ -43,12 +43,12 @@ class TrophyService  {
         reason.save(flush: true, failOnError: true)
     }
 
-    private void saveTrophyHistory(TrophyHistory history, TrophyDTO trophyDTO, User toUser, User fromUser, int trophies) {
+    private void saveTrophyHistory(TrophyHistory history, TrophyDTO trophyDTO, User toUser, User fromUser) {
         history.setTrophies(trophyDTO.getTrophies())
         history.setUser(toUser)
         history.setTrophiesGivenBy(fromUser)
         history.setBadge(trophyDTO.badge)
-        history.setTrophies(trophies)
+        history.setTrophies(trophyDTO.trophies)
         history.save(flush: true, failOnError: true)
     }
 
