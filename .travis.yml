@@ -26,7 +26,5 @@ deploy:
   api-key: "6148c234fd62f626501004ae5867566bb25211df"
   file: "target/rockstar-0.1.0.war"
   skip_cleanup: true
-  on:
-    tags: true
-    all_branches: true
+
 
