@@ -19,7 +19,7 @@ branches:
 only:
 - master
 
-script: grails refresh-dependencies && grails clean && grails upgrade --non-interactive && grails war --non-interactive
+
 
 deploy:
 provider: releases
@@ -29,3 +29,5 @@ skip_cleanup: true
 on:
 tags: true
 all_branches: true
+
+script: grails refresh-dependencies && grails clean && grails upgrade --non-interactive && grails war --non-interactive
