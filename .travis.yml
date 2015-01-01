@@ -30,5 +30,3 @@ deploy:
     tags: true
     all_branches: true
     repo:IDeaSCo/rockstar
-    
-
