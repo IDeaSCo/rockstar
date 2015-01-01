@@ -60,13 +60,9 @@ class User {
     }
 
     String getUserImage(){
-        //Use the code below to pick images from gravatar
-        //return "http://www.gravatar.com/avatar/"+email.toLowerCase().encodeAsMD5()
-
-        return "http://sww.sas.com/sww/tools/phonelist/photos/"+accountName.toLowerCase()+".jpg";
+        return "http://www.gravatar.com/avatar/"+email.toLowerCase().encodeAsMD5()
     }
     String getNoImage(){
-        //return "http://www.gravatar.com/avatar/"+email.toLowerCase().encodeAsMD5()
-        return "http://sww.sas.com/iss-images/nophoto.jpg";
+        return "http://www.gravatar.com/avatar/"+email.toLowerCase().encodeAsMD5()
     }
 }

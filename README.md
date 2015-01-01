@@ -9,7 +9,7 @@ This application makes use of Gamification techniques for Team Engagement and Te
 ####Deployment Requirements
 - Tomcat 7.0
 - MySQL 5.5
-- Java 1.6
+- Java 1.7
 - [Gravatar](https://en.gravatar.com/) profile image.
 - Windows Server with Active Directory Authentication
   - This application queries following fields from Active Directory
