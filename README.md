@@ -62,6 +62,7 @@ This application makes use of Gamification techniques for Team Engagement and Te
 - There are Angel and Devil badges. 
   - The goal is to earn Angel badges.
   - Devil badges represents activities that one should not be performing.
+- Customize Badges using [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/) icons.
 ![Badges](https://ashishparkhi.files.wordpress.com/2015/01/new-badge-list.png?w=930)
 
 ####Leader Board
