@@ -112,4 +112,4 @@ Click on any image on any screen and you would land up on the user details scree
  - Extended version of Jenkins CI-Plugin would send stars to Rock Star App.
 
 ####Rally
- - WIP
+ - [Jar & Code](https://github.com/IDeaSCo/rockstar-plugins-rally/releases)
