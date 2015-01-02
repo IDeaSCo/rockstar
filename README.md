@@ -66,8 +66,8 @@ This application makes use of Gamification techniques for Team Engagement and Te
 
 ####Leader Board
 - Department Leader Board has two sections
- - Left pannel shows the top three Badge leaders.
- - Right pannel shows
+ - Left panel shows the top three Badge leaders.
+ - Right panel shows
   - Star of the Day ( *Top three individuals, who earned most stars in a day.*)
    - Star of the Week.
    - Star of the Month.
@@ -89,7 +89,7 @@ Clicking on the user name on the right top corner brings the user on the User Pr
     - List all the users in the department in descending order of the number of stars received.
     - Appreciate the individual using the thumbs up icon.
  - Right Pannel
-  - Accordian shows all the badges that the user has received.
+  - Accordion shows all the badges that the user has received.
   - Progress bar shows the number of stars received for a given badge and the number of stars to achieve to reach to the next level of the badge.
   - Photos
     - The middle photo is of the self user.
