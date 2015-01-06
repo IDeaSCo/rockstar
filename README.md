@@ -62,12 +62,13 @@ This application makes use of Gamification techniques for Team Engagement and Te
 - There are Angel and Devil badges. 
   - The goal is to earn Angel badges.
   - Devil badges represents activities that one should not be performing.
+- Customize Badges using [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/) icons.
 ![Badges](https://ashishparkhi.files.wordpress.com/2015/01/new-badge-list.png?w=930)
 
 ####Leader Board
 - Department Leader Board has two sections
- - Left pannel shows the top three Badge leaders.
- - Right pannel shows
+ - Left panel shows the top three Badge leaders.
+ - Right panel shows
   - Star of the Day ( *Top three individuals, who earned most stars in a day.*)
    - Star of the Week.
    - Star of the Month.
@@ -89,7 +90,7 @@ Clicking on the user name on the right top corner brings the user on the User Pr
     - List all the users in the department in descending order of the number of stars received.
     - Appreciate the individual using the thumbs up icon.
  - Right Pannel
-  - Accordian shows all the badges that the user has received.
+  - Accordion shows all the badges that the user has received.
   - Progress bar shows the number of stars received for a given badge and the number of stars to achieve to reach to the next level of the badge.
   - Photos
     - The middle photo is of the self user.
@@ -112,4 +113,4 @@ Click on any image on any screen and you would land up on the user details scree
  - Extended version of Jenkins CI-Plugin would send stars to Rock Star App.
 
 ####Rally
- - WIP
+ - [Jar & Code](https://github.com/IDeaSCo/rockstar-plugins-rally/releases)
