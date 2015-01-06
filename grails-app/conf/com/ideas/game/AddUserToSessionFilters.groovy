@@ -15,24 +15,32 @@ class AddUserToSessionFilters {
     def filters = {
         allURIs(uri: '/**'){
             before = {
+
                     println "User:"+request.getRemoteUser()+" IP:"+request.getRemoteAddr();
                     BadgeService badgeService = new BadgeService(dataSource)
                     TrophyService trophyService = new TrophyService(dataSource);
                     if(request.getRemoteUser() != null) {
                         if(session.userInfo == null) {
+                            println "Getting star info Part 1."
 
                             User user = User.findByAccountName(stripDomainName(request.getRemoteUser()));
                             if (user == null) {
-                                UserInfoService userInfoService = new UserInfoService();
-                                UserInfoDTO dto = userInfoService.getUserInfoByUserName(request.getRemoteUser());
-                                if (dto == null) return;
+                                try {
+                                    UserInfoService userInfoService = new UserInfoService();
+                                    UserInfoDTO dto = userInfoService.getUserInfoByUserName(request.getRemoteUser());
+                                    if (dto == null) return;
 
-                                UserService userService = new UserService();
-                                user = userService.save(dto)
+                                    UserService userService = new UserService();
+                                    user = userService.save(dto)
 
+                                }catch(Exception e){
+                                    println("Could not query active directory for user:"+request.getRemoteUser());
+                                }
                             }
-
                             session.userInfo = user;
+
+                            if(controllerName.equals("trophy") && actionName.equals("save")) return;
+                            println "Getting star info Part 2."
 
                             session.badges = badgeService.listAvailableBadges(session.userInfo.getDepartment().departmentName);
                             session.starOfTheDayMap = trophyService.getStarOfTheDay(session.userInfo.getDepartment().departmentName);
