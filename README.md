@@ -34,7 +34,7 @@ This application makes use of Gamification techniques for Team Engagement and Te
   - dataSource.url=jdbc:mysql://localhost:3309/game?autoReconnect=true
   - dataSource.username=admin
   - dataSource.password=admin
- - The application exposes REST API `<BASE_APP_URL>`/trophy/save for bots to credit stars.
+- The application exposes REST API `<BASE_APP_URL>`/trophy/save for bots to credit stars.
   - iplookup tables should contain the list of emailIDs and IP addresses from where legitimate bots can credit stars.
   - sample REST message
     `{
@@ -44,7 +44,9 @@ This application makes use of Gamification techniques for Team Engagement and Te
     "reason":"For coming up with gamification idea.",
     "badgeName":"Innovator"
    }`
-
+- For bots, configure the email address and the ipaddress in iplookup table for .
+  - The combination indicates legitimate source from where the stars would be credited automatically.
+  - If stars are credited using the REST API exposed and the corresponding email & IP adddress combination is not available in iplookup table, the app will consider that someone is cheating with the system and will not credit the stars.
 ####Levels
 - As the user starts earning stars, he would reach different levels. Level represent the smallest and the largest objects in our solar system. The objective of the game is to reach the Sun.
 
