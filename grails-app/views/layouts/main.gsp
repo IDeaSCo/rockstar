@@ -48,7 +48,7 @@
 			<ul class="nav pull-right top-menu">
 			    <li class="dropdown" style="top:5px;">
 					<g:link controller="user" action="profile" >
-						<span class="profile-ava">
+						<span class="profile-ava" title="${session?.userInfo?.getName()}">
 						    <img alt="" src="${session?.userInfo?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" height="35" width="30">
 						</span>
 						<span class="username">${session?.userInfo?.getName()}
@@ -94,7 +94,8 @@
                               <section class="panel">
                                <div id="mainwinner">
                                  <g:if test="${session?.starOfTheDayMap?.size() > 0}">
-                                   <div style="width:75px;"> 
+                                   <div style="width:75px;">
+
                                    	<g:link controller="user" action="view" id="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.id}" ><img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
                                    	<span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserBadge()}</span>
                                    </div>
@@ -462,29 +463,31 @@
                               <div>
                                   <div class="badge-icon">
                                   	<g:if test="${session?.badgeLeaderBoard?.get(badge).size()>0}">
-                                  	      <span class="fa-stack fa-lg" title="${badge.badgeName} - Level - ${session?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelName()}">
+                                  	    <span class="fa-stack fa-lg" title="${badge.badgeName} - Level - ${session?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelName()}">
                                   	</g:if>
                                   	<g:else>
                                   		<span class="fa-stack fa-lg" title="${badge.badgeName} - Level - Amature">
                                   	</g:else>
-						<g:if test="${session?.badgeLeaderBoard?.get(badge).size()>0}">
-							<i class="fa fa-circle fa-stack-2x" style="color: ${session?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelColor()};"></i>
-						</g:if>
-						<g:else>
-							<i class="fa fa-circle fa-stack-2x" style="color: #008000"></i>
-						</g:else>
-				             	<g:if test="${badge.isEvil}">
-                                             		<i class="fa ${badge.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
-                                          	</g:if>	
-						     <g:else>
-							<i class="fa ${badge.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
-						     </g:else>	
+                                    <g:if test="${session?.badgeLeaderBoard?.get(badge).size()>0}">
+                                        <i class="fa fa-circle fa-stack-2x" style="color: ${session?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelColor()};"></i>
+                                    </g:if>
+                                    <g:else>
+                                        <i class="fa fa-circle fa-stack-2x" style="color: #008000"></i>
+                                    </g:else>
+                                    <g:if test="${badge.isEvil}">
+                                            <i class="fa ${badge.badgeIcon} fa-stack-1x" style="color:#000000;"></i>
+                                    </g:if>
+                                     <g:else>
+                                        <i class="fa ${badge.badgeIcon} fa-stack-1x" style="color:#FFFFFF"></i>
+                                     </g:else>
                                       </span>
                                   </div>
                                   <div class="badge-leader">
                                        <p>${badge.badgeName}</p>
                                       <g:each status="j" var="userBadge" in="${session?.badgeLeaderBoard?.get(badge)}">
-                                          <g:link controller="user" action="view" id="${userBadge?.user?.id}" ><img src="${userBadge?.user?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" alt="" style="width:35px; height: 35px;"/></g:link>
+                                          <span title="${userBadge?.user?.getName()}">
+                                            <g:link controller="user" action="view" id="${userBadge?.user?.id}" ><img src="${userBadge?.user?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" alt="" style="width:35px; height: 35px;"/></g:link>
+                                          </span>
                                       </g:each>
                                   </div>
                                   <div style="clear:both"></div>

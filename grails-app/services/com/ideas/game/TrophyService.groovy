@@ -66,7 +66,7 @@ class TrophyService  {
 
         Sql sql = new Sql(dataSource);
         def starOfTheDayMap = [:]
-        String query = 'select user_id,sum(Trophy_history.trophies) as trophies from Trophy_history inner join user  on Trophy_history.user_id=user.id inner join department on user.department_id=department.id where department_name="'+department+'" and date(date)=date(now()) group by 1 order by 2 desc limit 3';
+        String query = 'select user_id,sum(Trophy_history.trophies) as trophies from Trophy_history inner join user  on Trophy_history.user_id=user.id inner join department on user.department_id=department.id inner join badge on Trophy_history.badge_id=badge.id where department_name="'+department+'" and date(date)=date(now()) and badge.is_evil=0 group by 1 order by 2 desc limit 3';
         sql.eachRow( query ) { 
             int id = it.user_id;
             starOfTheDayMap.put(User.findById(id), it.trophies)
@@ -78,7 +78,7 @@ class TrophyService  {
         Sql sql = new Sql(dataSource);
         
         def starOfTheWeekMap = [:]
-        String query = 'select user_id,sum(Trophy_history.trophies) as trophies from Trophy_history inner join user  on Trophy_history.user_id=user.id inner join department on user.department_id=department.id where department_name="'+department+'" and date(date) between date_sub(date(now()), interval 7 day) and date(now()) group by 1 order by 2 desc limit 3';
+        String query = 'select user_id,sum(Trophy_history.trophies) as trophies from Trophy_history inner join user  on Trophy_history.user_id=user.id inner join department on user.department_id=department.id inner join badge on Trophy_history.badge_id=badge.id  where department_name="'+department+'" and date(date) between date_sub(date(now()), interval 7 day) and date(now()) and badge.is_evil=0  group by 1 order by 2 desc limit 3';
         sql.eachRow( query ) {
             int id = it.user_id;
             starOfTheWeekMap.put(User.findById(id), it.trophies)
@@ -90,7 +90,7 @@ class TrophyService  {
         Sql sql = new Sql(dataSource);
 
         def starOfTheMonthMap = [:]
-        String query = 'select user_id,sum(Trophy_history.trophies) as trophies from Trophy_history inner join user  on Trophy_history.user_id=user.id inner join department on user.department_id=department.id where department_name="'+department+'" and date(date) between date_sub(now(),interval DAYOFMONTH(now()) -1 day) and date(now()) group by 1 order by 2 desc limit 3';
+        String query = 'select user_id,sum(Trophy_history.trophies) as trophies from Trophy_history inner join user  on Trophy_history.user_id=user.id inner join department on user.department_id=department.id inner join badge on Trophy_history.badge_id=badge.id  where department_name="'+department+'" and date(date) between date_sub(now(),interval DAYOFMONTH(now()) -1 day) and date(now()) and badge.is_evil=0  group by 1 order by 2 desc limit 3';
         sql.eachRow( query ) {
             int id = it.user_id;
             starOfTheMonthMap.put(User.findById(id), it.trophies)
@@ -125,7 +125,7 @@ class TrophyService  {
     def getAppreciator(String department){
         Sql sql = new Sql(dataSource);
         def appreciatorMap = [:]
-        String query = 'select trophies_given_by_id,sum(Trophy_history.trophies) as trophies from Trophy_history inner join user  on Trophy_history.trophies_given_by_id=user.id inner join department on user.department_id=department.id where Trophy_history.trophies>0 and department_name="'+department+'" group by 1 order by 2 desc limit 10';
+        String query = 'select trophies_given_by_id,sum(Trophy_history.trophies) as trophies from Trophy_history inner join user  on Trophy_history.trophies_given_by_id=user.id inner join department on user.department_id=department.id inner join badge on Trophy_history.badge_id=badge.id  where department_name="'+department+'"  and badge.is_evil=0  group by 1 order by 2 desc limit 10';
         
         sql.eachRow( query ) {
             int id = it.trophies_given_by_id;

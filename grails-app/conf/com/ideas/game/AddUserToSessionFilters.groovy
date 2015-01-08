@@ -21,8 +21,6 @@ class AddUserToSessionFilters {
                     TrophyService trophyService = new TrophyService(dataSource);
                     if(request.getRemoteUser() != null) {
                         if(session.userInfo == null) {
-                            println "Getting star info Part 1."
-
                             User user = User.findByAccountName(stripDomainName(request.getRemoteUser()));
                             if (user == null) {
                                 try {
@@ -40,7 +38,6 @@ class AddUserToSessionFilters {
                             session.userInfo = user;
 
                             if(controllerName.equals("trophy") && actionName.equals("save")) return;
-                            println "Getting star info Part 2."
 
                             session.badges = badgeService.listAvailableBadges(session.userInfo.getDepartment().departmentName);
                             session.starOfTheDayMap = trophyService.getStarOfTheDay(session.userInfo.getDepartment().departmentName);
