@@ -111,7 +111,7 @@ Click on any image on any screen and you would land up on the user details scree
 ####Jenkins
  - Extended version of [Jenkins CI-Plugin](https://github.com/jenkinsci/ci-game-plugin) is available as [rockstar-plugins-jenkins-ci-game](https://github.com/IDeaSCo/rockstar-plugins-jenkins-ci-game)
  - Extended version of Jenkins CI-Plugin would send stars to Rock Star App.
- - [Download ci-game-1.21.1 hpi zip](https://github.com/IDeaSCo/rockstar-plugins-jenkins-ci-game/releases/download/ci-game-1.21.1/ci-game.hpi.zip)
+ - [Download ci-game-1.21.1 hpi](https://github.com/IDeaSCo/rockstar-plugins-jenkins-ci-game/releases/download/ci-game-1.21.1/ci-game.hpi)
 
 ####Rally
  - [Jar & Code](https://github.com/IDeaSCo/rockstar-plugins-rally/releases)
