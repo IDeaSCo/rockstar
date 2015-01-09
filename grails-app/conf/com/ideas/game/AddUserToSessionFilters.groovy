@@ -16,6 +16,7 @@ class AddUserToSessionFilters {
         allURIs(uri: '/**'){
             before = {
 
+                    println controllerName +" "+ actionName;
                     println "User:"+request.getRemoteUser()+" IP:"+request.getRemoteAddr();
                     BadgeService badgeService = new BadgeService(dataSource)
                     TrophyService trophyService = new TrophyService(dataSource);
@@ -36,21 +37,19 @@ class AddUserToSessionFilters {
                                 }
                             }
                             session.userInfo = user;
-
-                            if(controllerName.equals("trophy") && actionName.equals("save")) return;
-
-                            session.badges = badgeService.listAvailableBadges(session.userInfo.getDepartment().departmentName);
-                            session.starOfTheDayMap = trophyService.getStarOfTheDay(session.userInfo.getDepartment().departmentName);
-                            session.starOfTheWeekMap = trophyService.getStarOfTheWeek(session.userInfo.getDepartment().departmentName);
-                            session.starOfTheMonthMap = trophyService.getStarOfTheMonth(session.userInfo.getDepartment().departmentName);
-                            session.starMap = trophyService.getStar(session.userInfo.getDepartment().departmentName);
-                            session.appreciatorMap = trophyService.getAppreciator(session.userInfo.getDepartment().departmentName);
-                            MissionService missionService = new MissionService(dataSource);
-                            session.openMission = missionService.getOpenMissions();
-                            session.badgeLeaderBoard = badgeService.getBadgeLeaderBoard(session.userInfo.getDepartment().departmentName);
-
                         }
 
+                }
+                if(controllerName == null && actionName == null ) {
+                    session.badges = badgeService.listAvailableBadges(session.userInfo.getDepartment().departmentName);
+                    session.starOfTheDayMap = trophyService.getStarOfTheDay(session.userInfo.getDepartment().departmentName);
+                    session.starOfTheWeekMap = trophyService.getStarOfTheWeek(session.userInfo.getDepartment().departmentName);
+                    session.starOfTheMonthMap = trophyService.getStarOfTheMonth(session.userInfo.getDepartment().departmentName);
+                    session.starMap = trophyService.getStar(session.userInfo.getDepartment().departmentName);
+                    session.appreciatorMap = trophyService.getAppreciator(session.userInfo.getDepartment().departmentName);
+                    MissionService missionService = new MissionService(dataSource);
+                    session.openMission = missionService.getOpenMissions();
+                    session.badgeLeaderBoard = badgeService.getBadgeLeaderBoard(session.userInfo.getDepartment().departmentName);
                 }
             }
         }
