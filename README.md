@@ -3,6 +3,8 @@ Rock Star - Gamifying Team Engagement
 
 This application makes use of Gamification techniques for Team Engagement and Team's Performance tracking. Though it originated as an experiement to [Gamify Agile Adoption](http://ashishparkhi.com/2014/10/26/gamifying-agile-adoption-an-experiment/) at [IDeaS](http://ideas.com), it's scope is not limited just for Agile Adoption. It can be used by any orginization that wants their teams to get continuous visual feedback on how they are doing, visualize sense of accountability, visualize sense of achievement, reinforce positive behavior, create healthy competition, create a culture of appreciation, encourage innovation, help performance tracking and create transparency. 
 
+[![Build Status](https://travis-ci.org/IDeaSCo/rockstar.svg?branch=master)](https://travis-ci.org/IDeaSCo/rockstar)
+
 ####Build Requirements
 - Grails 2.2.4
 
