@@ -6,8 +6,11 @@ class TrophyService  {
 
 
     UserService userService = new UserService();
+    def TrophyService(){
 
-    TrophyService(def dataSource){
+    }
+
+    def TrophyService(def dataSource){
         this.dataSource = dataSource;
     }
 

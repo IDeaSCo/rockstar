@@ -95,7 +95,7 @@
 					<!--comment1-->
 					<div class="panel panel-primary">
 
-					      <div class="panel-heading" style="padding:5px;"><img  alt="" src="${reasonList.get(0).trophiesGivenBy.getUserImage()}" height="35" onError="this.src='${session?.userInfo?.getNoImage()}';"> ${reasonList.get(0).trophiesGivenBy.getName()} gave <button class="btn btn-default" disabled> <g:if test="${reasonList.get(0).trophies > 0}"> <i class="fa fa-thumbs-up"> </g:if><g:else> <i class="fa fa-thumbs-down"> </g:else></i></button> ${reasonList.get(0).trophies} trophies on ${reasonList.get(0).date}</div>
+					      <div class="panel-heading" style="padding:5px;"><img  alt="" src="${reasonList.get(0).trophiesGivenBy.getUserImage()}" height="35" onError="this.src='${session?.userInfo?.getNoImage()}';"> ${reasonList.get(0).trophiesGivenBy.getName()} gave <button class="btn btn-default" disabled> <g:if test="${reasonList.get(0).badge.isEvil == false}"> <i class="fa fa-thumbs-up"> </g:if><g:else> <i class="fa fa-thumbs-down"> </g:else></i></button> ${reasonList.get(0).trophies} trophies on ${reasonList.get(0).date}</div>
 
 					      <div class="panel-body">
 						${reasonList.get(1)}
