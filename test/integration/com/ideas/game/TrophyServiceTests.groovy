@@ -54,8 +54,26 @@ class TrophyServiceTests {
     }
 
 
+    private void prepareDataForStarOfTheDay(){
+        saveUser("test3.user3@ideas.com","test3","user3","SD","3");
+        saveUser("test4.user4@ideas.com","test4","user4","QA","4");
+        saveUser("test5.user5@ideas.com","test5","user5","QA","5");
+        saveUser("test6.user6@ideas.com","test6","user6","QA","6");
+        saveUser("test7.user7@ideas.com","test7","user7","QA","7");
+        createHistory("test4.user4@ideas.com","test1.user1@ideas.com","Innovator",1);
+        createHistory("test4.user4@ideas.com","test1.user1@ideas.com","Process Violator",2);
+        createHistory("test5.user5@ideas.com","test1.user1@ideas.com","Innovator",3);
+        createHistory("test5.user5@ideas.com","test1.user1@ideas.com","Process Violator",4);
+        createHistory("test6.user6@ideas.com","test1.user1@ideas.com","Innovator",5);
+        createHistory("test6.user6@ideas.com","test1.user1@ideas.com","Process Violator",6);
+        createHistory("test7.user7@ideas.com","test1.user1@ideas.com","Innovator",7);
+        createHistory("test7.user7@ideas.com","test1.user1@ideas.com","Process Violator",8);
+    }
+
     @Test
     public void getStarOfTheDay(){
+
+        prepareDataForStarOfTheDay()
         TrophyService service = new TrophyService(dataSource);
         def starOfTheDay = service.getStarOfTheDay("QA");
         Assert.assertEquals(3,starOfTheDay.size());
@@ -98,19 +116,6 @@ class TrophyServiceTests {
         createDepatment("QA")
         saveUser("test1.user1@ideas.com","test1","user1","SD","1");
         saveUser("test2.user2@ideas.com","test2","user2","SD","2");
-        saveUser("test3.user3@ideas.com","test3","user3","SD","3");
-        saveUser("test4.user4@ideas.com","test4","user4","QA","4");
-        saveUser("test5.user5@ideas.com","test5","user5","QA","5");
-        saveUser("test6.user6@ideas.com","test6","user6","QA","6");
-        saveUser("test7.user7@ideas.com","test7","user7","QA","7");
-        createHistory("test4.user4@ideas.com","test1.user1@ideas.com","Innovator",1);
-        createHistory("test4.user4@ideas.com","test1.user1@ideas.com","Process Violator",2);
-        createHistory("test5.user5@ideas.com","test1.user1@ideas.com","Innovator",3);
-        createHistory("test5.user5@ideas.com","test1.user1@ideas.com","Process Violator",4);
-        createHistory("test6.user6@ideas.com","test1.user1@ideas.com","Innovator",5);
-        createHistory("test6.user6@ideas.com","test1.user1@ideas.com","Process Violator",6);
-        createHistory("test7.user7@ideas.com","test1.user1@ideas.com","Innovator",7);
-        createHistory("test7.user7@ideas.com","test1.user1@ideas.com","Process Violator",8);
 
 
     }
