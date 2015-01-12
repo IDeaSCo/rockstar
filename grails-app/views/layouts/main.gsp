@@ -93,22 +93,22 @@
                                       <!--project team start-->
                               <section class="panel">
                                <div id="mainwinner">
-                                 <g:if test="${session?.starOfTheDayMap?.size() > 0}">
+                                 <g:if test="${request?.starOfTheDayMap?.size() > 0}">
                                    <div style="width:75px;">
 
-                                   	<g:link controller="user" action="view" id="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.id}" ><img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
-                                   	<span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserBadge()}</span>
+                                   	<g:link controller="user" action="view" id="${((com.ideas.game.User)request?.starOfTheDayMap?.keySet()?.toList()?.first())?.id}" ><img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)request?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
+                                   	<span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)request?.starOfTheDayMap?.keySet()?.toList()?.first())?.getUserBadge()}</span>
                                    </div>
                                    
-                                   <div style="padding-left:0px;"> <p class="profile-name">${session?.starOfTheDayMap?.keySet()?.toList()?.first()?.getName()}</p> </div>
-                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:30px">${session?.starOfTheDayMap?.get(session?.starOfTheDayMap?.keySet()?.toList()?.first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
+                                   <div style="padding-left:0px;"> <p class="profile-name">${request?.starOfTheDayMap?.keySet()?.toList()?.first()?.getName()}</p> </div>
+                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:30px">${request?.starOfTheDayMap?.get(request?.starOfTheDayMap?.keySet()?.toList()?.first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
                                  </g:if>
  
                                 </div>
 
                               <table class="table table-hover personal-task">
                               <tbody>
-                                    <g:each status="i" var="user" in="${session?.starOfTheDayMap?.keySet()}">
+                                    <g:each status="i" var="user" in="${request?.starOfTheDayMap?.keySet()}">
                                                     <g:if test="${i > 0}">
                                         <tr>
 
@@ -125,7 +125,7 @@
                                               <p class="profile-name">${user.getName()}</p>
                                           </td>
                                           <td>
-                                              <span class="badge bg-info" style="font-size:20px">${session?.starOfTheDayMap?.get(user)}</span>
+                                              <span class="badge bg-info" style="font-size:20px">${request?.starOfTheDayMap?.get(user)}</span>
                                               <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
                                           </td>
                                           </tr>
@@ -162,20 +162,20 @@
                                       <!--project team start-->
                               <section class="panel">
                                <div id="mainwinner">
-                                 <g:if test="${session?.starOfTheWeekMap?.size() > 0}">
+                                 <g:if test="${request?.starOfTheWeekMap?.size() > 0}">
                                    <div style="width:75px;"> 
-                                   <g:link controller="user" action="view" id="${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).id}" ><img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
-                                   <span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
+                                   <g:link controller="user" action="view" id="${((com.ideas.game.User)request?.starOfTheWeekMap?.keySet()?.toList()?.first()).id}" ><img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)request?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
+                                   <span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)request?.starOfTheWeekMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                    </div>
-                                   <div style="padding-left:20px;"> <p class="profile-name">${session?.starOfTheWeekMap?.keySet().toList().first().getName()}</p> </div>
-                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:30px">${session?.starOfTheWeekMap?.get(session?.starOfTheWeekMap?.keySet().toList().first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
+                                   <div style="padding-left:20px;"> <p class="profile-name">${request?.starOfTheWeekMap?.keySet().toList().first().getName()}</p> </div>
+                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:30px">${request?.starOfTheWeekMap?.get(request?.starOfTheWeekMap?.keySet().toList().first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
                                  </g:if>
                                 </div>
 
                         <table class="table table-hover personal-task">
                               <table class="table table-hover personal-task">
                               <tbody>
-                                <g:each status="i" var="user" in="${session?.starOfTheWeekMap?.keySet()}">
+                                <g:each status="i" var="user" in="${request?.starOfTheWeekMap?.keySet()}">
                                                 <g:if test="${i > 0}">
                                     <tr>
 
@@ -192,7 +192,7 @@
                                           <p class="profile-name">${user.getName()}</p>
                                       </td>
                                       <td>
-                                          <span class="badge bg-info" style="font-size:20px">${session?.starOfTheWeekMap?.get(user)}</span>
+                                          <span class="badge bg-info" style="font-size:20px">${request?.starOfTheWeekMap?.get(user)}</span>
                                          <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
                                       </td>
                                       </tr>
@@ -229,20 +229,20 @@
                                       <!--project team start-->
                               <section class="panel">
                                <div id="mainwinner">
-                                 <g:if test="${session?.starOfTheMonthMap?.size() > 0}">
+                                 <g:if test="${request?.starOfTheMonthMap?.size() > 0}">
                                    <div style="width:75px;"> 
-                                   <g:link controller="user" action="view" id="${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).id}" ><img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
-                                   <span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)session?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
+                                   <g:link controller="user" action="view" id="${((com.ideas.game.User)request?.starOfTheMonthMap?.keySet()?.toList()?.first()).id}" ><img style="height:72px;width72px;padding-bottom: 5px;" alt=""  src="${((com.ideas.game.User)request?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';"/></g:link>
+                                   <span class="badge bg-important" style="position: relative;left: 30px;bottom: 15px;background: #FF4F2D;">${((com.ideas.game.User)request?.starOfTheMonthMap?.keySet()?.toList()?.first()).getUserBadge()}</span>
                                    </div>
-                                   <div style="padding-left:20px;"> <p class="profile-name">${session?.starOfTheMonthMap?.keySet().toList().first().getName()}</p> </div>
-                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:30px">${session?.starOfTheMonthMap?.get(session?.starOfTheMonthMap?.keySet().toList().first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
+                                   <div style="padding-left:20px;"> <p class="profile-name">${request?.starOfTheMonthMap?.keySet().toList().first().getName()}</p> </div>
+                                   <div style="width: 45%;text-align: right;"><span class="badge bg-info" style="font-size:30px">${request?.starOfTheMonthMap?.get(request?.starOfTheMonthMap?.keySet().toList().first())}</span> <i style="padding-left:10px;font-size:50px; color:blue;" class="fa fa-star"></i></div>
                                  </g:if>
                                 </div>
 
                             <table class="table table-hover personal-task">
                                   <table class="table table-hover personal-task">
                                   <tbody>
-                                <g:each status="i" var="user" in="${session?.starOfTheMonthMap?.keySet()}">
+                                <g:each status="i" var="user" in="${request?.starOfTheMonthMap?.keySet()}">
                                 <g:if test="${i > 0}">
                                     <tr>
 
@@ -260,7 +260,7 @@
 
                                       </td>
                                       <td>
-                                          <span class="badge bg-info" style="font-size:20px">${session?.starOfTheMonthMap?.get(user)}</span>
+                                          <span class="badge bg-info" style="font-size:20px">${request?.starOfTheMonthMap?.get(user)}</span>
                                          <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
                                       </td>
                                       </tr>
@@ -299,7 +299,7 @@
 
                         <table class="table table-hover personal-task">
 				      <tbody>
-					<g:each status="i" var="user" in="${session?.starMap?.keySet()}">
+					<g:each status="i" var="user" in="${request?.starMap?.keySet()}">
 						<tr>
 
 						    <!--<td>
@@ -316,7 +316,7 @@
 
 						  </td>
 						  <td>
-						      <span class="badge bg-info" style="font-size:20px">${session?.starMap?.get(user)}</span>
+						      <span class="badge bg-info" style="font-size:20px">${request?.starMap?.get(user)}</span>
 						     <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
 						  </td>
 					      </tr>
@@ -353,7 +353,7 @@
 
                                         <table class="table table-hover personal-task">
                                               <tbody>
-                                                <g:each status="i" var="user" in="${session?.appreciatorMap?.keySet()}">
+                                                <g:each status="i" var="user" in="${request?.appreciatorMap?.keySet()}">
                                                     <tr>
 
                                                         <!--<td>
@@ -370,7 +370,7 @@
 
                                                       </td>
                                                       <td>
-                                                          <span class="badge bg-info" style="font-size:20px">${session?.appreciatorMap?.get(user)}</span>
+                                                          <span class="badge bg-info" style="font-size:20px">${request?.appreciatorMap?.get(user)}</span>
                                                           <i style="padding-left:10px; color:blue;" class="fa fa-star"></i>
                                                       </td>
                                                       </tr>
@@ -406,7 +406,7 @@
 
                                                       <table class="table table-hover personal-task">
                                                             <tbody>
-                                                              <g:each status="i" var="mission" in="${session?.openMission}">
+                                                              <g:each status="i" var="mission" in="${request?.openMission}">
                                                                   <tr>
 
                                                                       <!--<td>
@@ -457,19 +457,19 @@
       <!--main content end-->
       </div>
                 <div id="fixed">
-                    <g:each status="i" var="badge" in="${session?.badgeLeaderBoard?.keySet()}">
+                    <g:each status="i" var="badge" in="${request?.badgeLeaderBoard?.keySet()}">
                       <div id="badge${i}" style="text-align: left;  padding-left: 10px;">
                           <p style="word-spacing: 15px;">
                               <div>
                                   <div class="badge-icon">
-                                  	<g:if test="${session?.badgeLeaderBoard?.get(badge).size()>0}">
-                                  	    <span class="fa-stack fa-lg" title="${badge.badgeName} - Level - ${session?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelName()}">
+                                  	<g:if test="${request?.badgeLeaderBoard?.get(badge).size()>0}">
+                                  	    <span class="fa-stack fa-lg" title="${badge.badgeName} - Level - ${request?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelName()}">
                                   	</g:if>
                                   	<g:else>
                                   		<span class="fa-stack fa-lg" title="${badge.badgeName} - Level - Amature">
                                   	</g:else>
-                                    <g:if test="${session?.badgeLeaderBoard?.get(badge).size()>0}">
-                                        <i class="fa fa-circle fa-stack-2x" style="color: ${session?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelColor()};"></i>
+                                    <g:if test="${request?.badgeLeaderBoard?.get(badge).size()>0}">
+                                        <i class="fa fa-circle fa-stack-2x" style="color: ${request?.badgeLeaderBoard?.get(badge)?.get(0)?.getLevelColor()};"></i>
                                     </g:if>
                                     <g:else>
                                         <i class="fa fa-circle fa-stack-2x" style="color: #008000"></i>
@@ -484,7 +484,7 @@
                                   </div>
                                   <div class="badge-leader">
                                        <p>${badge.badgeName}</p>
-                                      <g:each status="j" var="userBadge" in="${session?.badgeLeaderBoard?.get(badge)}">
+                                      <g:each status="j" var="userBadge" in="${request?.badgeLeaderBoard?.get(badge)}">
                                           <span title="${userBadge?.user?.getName()}">
                                             <g:link controller="user" action="view" id="${userBadge?.user?.id}" ><img src="${userBadge?.user?.getUserImage()}" onError="this.src='${session?.userInfo?.getNoImage()}';" alt="" style="width:35px; height: 35px;"/></g:link>
                                           </span>

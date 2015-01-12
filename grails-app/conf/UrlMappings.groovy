@@ -10,8 +10,8 @@ class UrlMappings {
         "/trophy"{
             action = [POST:"save"]
           }
-		"/"(view:"/index")
-                "/index"(view:"/index")
-		"500"(view:'/index')
+		"/"(controller:"/leader", action:"index")
+        "/index"(controller:"/leader", action:"index")
+		"500"(controller:'/leader', action:"index")
 	}
 }
