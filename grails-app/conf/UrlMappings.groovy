@@ -12,6 +12,6 @@ class UrlMappings {
           }
 		"/"(controller:"/leader", action:"index")
         "/index"(controller:"/leader", action:"index")
-		"500"(controller:'/leader', action:"index")
+		"500"(view:'error.gsp')
 	}
 }
