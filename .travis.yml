@@ -19,7 +19,7 @@ script: grails refresh-dependencies && grails clean && grails upgrade --non-inte
 
 deploy:
   provider: releases
-  api-key: "15116853a7ec2b2ba04f9ee612f05941ee9b36d4"
+  secure: "j1ADEDVRKoPlxEqSsZCItfSebPlVuKhK5e5Ov711XIiB37z5DbqDp7phNGl1Vt+EhSF8kMeFylACB78ncj/Y1Tb4KZG34ZKa+krAs60jhvJk3S+ewAlxzdKSyZdd16ZpWtLFseomY71OJ7twFLhgw4xQOK03CEFCea7uDbhyjGQ="
   file: "target/rockstar-1.0.0.war"
   skip_cleanup: true
   on:
