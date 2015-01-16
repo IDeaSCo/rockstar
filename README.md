@@ -109,7 +109,7 @@ Click on any image on any screen and you would land up on the user details scree
 ![User Details](https://ashishparkhi.files.wordpress.com/2015/01/new-user-details.png?w=930)
 
 ###Downloads
-- [Rock Star - Version 1.0.0](https://github.com/IDeaSCo/rockstar/releases/download/v1.0.0/rockstar-1.0.0.war)
+- [Rock Star - Version 1.0.0](https://github.com/IDeaSCo/rockstar/releases/download/1.0.0/rockstar-1.0.0.war)
 
 ###Bots
 ####Jenkins
