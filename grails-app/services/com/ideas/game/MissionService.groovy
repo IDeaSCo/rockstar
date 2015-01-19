@@ -15,14 +15,13 @@ class MissionService {
         mission.save(flush: true,  failOnError: true)
     }
     def createMission(def params, String missionCreatorEmail) {
-
         User fromUser = userService.getUser(missionCreatorEmail)
         Mission newMission = new Mission();
         newMission.creator = fromUser;
         newMission.date = new Date();
         newMission.missionStatement = params.missionStatement;
         newMission.status = 1;
-        newMission.trophies = params.trohies.toInteger();
+        newMission.trophies = params.trophies.toInteger();
         newMission.save(flush: true,  failOnError: true)
         
     }
