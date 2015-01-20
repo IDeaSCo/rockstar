@@ -25,6 +25,7 @@ class UserController {
         TrophyService trophyService = new TrophyService(dataSource);
         BadgeService badgeService = new BadgeService(dataSource);
 
+        def badges = badgeService.listAvailableBadges(session.userInfo.getDepartment().departmentName);
         def departmentMap = trophyService.getDepartmentMap(session.userInfo.getDepartment().departmentName);
         def userBadges = badgeService.getBadgesForUser(session.userInfo);
         def userCompetitorBadges = [];
@@ -33,6 +34,6 @@ class UserController {
             userCompetitorBadges.add(badgeService.getUserCompetition(it));
             userFollowerBadges.add(badgeService.getUserFollower(it));
         }
-        [departmentMap: departmentMap, userBadges:userBadges, userCompetitorBadges:userCompetitorBadges, userFollowerBadges:userFollowerBadges]
+        [departmentMap: departmentMap, userBadges:userBadges, userCompetitorBadges:userCompetitorBadges, userFollowerBadges:userFollowerBadges, badges:badges]
     }
 }

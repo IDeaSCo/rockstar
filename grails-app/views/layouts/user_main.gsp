@@ -233,7 +233,7 @@
                                         </g:else>
                                          <g:select id="badgeId" name="badgeId"
                                                   noSelection="${['-1':'Select One Category...']}"
-                                                  from="${session.badges}"
+                                                  from="${request.badges}"
                                                   optionValue="badgeName"
                                                   optionKey="id" />
 	                                  </div>
