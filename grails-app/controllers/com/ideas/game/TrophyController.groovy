@@ -39,8 +39,6 @@ class TrophyController {
     }
 
     def update = {
-
-
         def trophyService = new TrophyService(dataSource);
         def trophyDTO = new TrophyDTO()
         if(params?.reason?.equals("")){
@@ -58,7 +56,6 @@ class TrophyController {
                 return redirect(uri: "/user/profile")
             }
         }
-
         String selfEmailID=session.userInfo.email.toLowerCase();
         if(!params?.toUserEmailID?.toLowerCase().equals(selfEmailID) ) {
             trophyDTO.fromUserEmailID = session.userInfo.getEmail();
@@ -71,4 +68,40 @@ class TrophyController {
         }
         redirect(uri: "/user/profile")
     }
+
+    def claim = {
+        def trophyService = new TrophyService(dataSource);
+        def trophyDTO = new TrophyDTO()
+        if(params?.claimReason?.equals("")){
+            return redirect(uri: "/user/profile")
+        }
+        if(params?.claimBadgeId == null){
+            return redirect(uri: "/user/profile")
+        }
+        if(params?.claimTrophies == null ){
+            return redirect(uri: "/user/profile")
+        }
+
+        Badge badge= Badge.findById(params.claimBadgeId);
+
+        int trophies=badge.starsAwarded;
+        if(params.claimTrophies.toInteger() != 0 && params.claimTrophies.toInteger() != badge.starsAwarded){
+            if( session.userInfo.isEligibleToGrantMoreOrLessThanOneStars() ) {
+                trophies=params.claimTrophies.toInteger();
+            }else{
+                println "User "+session.userInfo.getName()+" not eligible to grant "+params.claimTrophies.toInteger()+" stars.";
+                return redirect(uri: "/user/profile")
+            }
+        }
+        trophyDTO.fromUserEmailID = session.userInfo.getEmail();
+        trophyDTO.toUserEmailID = session.userInfo.getEmail();
+        trophyDTO.trophies = trophies;
+        trophyDTO.reason = "Claiming Stars For:"+params.reason;
+        trophyDTO.badge = badge;
+        trophyService.saveTrophies(trophyDTO)
+
+        redirect(uri: "/user/profile")
+    }
+
+
 }

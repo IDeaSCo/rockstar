@@ -128,7 +128,7 @@ class TrophyService  {
     def getAppreciator(String department){
         Sql sql = new Sql(dataSource);
         def appreciatorMap = [:]
-        String query = 'select trophies_given_by_id,sum(Trophy_history.trophies) as trophies from Trophy_history inner join user  on Trophy_history.trophies_given_by_id=user.id inner join department on user.department_id=department.id inner join badge on Trophy_history.badge_id=badge.id  where department_name="'+department+'"  and badge.is_evil=0  group by 1 order by 2 desc limit 10';
+        String query = 'select trophies_given_by_id,sum(Trophy_history.trophies) as trophies from Trophy_history inner join user  on Trophy_history.trophies_given_by_id=user.id inner join department on user.department_id=department.id inner join badge on Trophy_history.badge_id=badge.id  where Trophy_history.user_id<>trophies_given_by_id and department_name="'+department+'"  and badge.is_evil=0  group by 1 order by 2 desc limit 10';
         
         sql.eachRow( query ) {
             int id = it.trophies_given_by_id;

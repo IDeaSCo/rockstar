@@ -208,8 +208,9 @@
 			   			 <footer class="profile-widget-foot">
 			   			 Appreciate someone today!
 			   			 <button class="btn btn-default" data-toggle="modal" data-target="#myModal" ><i style="font-size:150%" class="fa fa-thumbs-up"></i></button>
+			   			 <button title="Claim Stars" class="btn btn-default" data-toggle="modal" data-target="#claimStars" ><i style="font-size:150%" class="fa fa-copyright"></i></button>
 			   			 <g:if test="${session.userInfo.isEligibleToGrantMoreOrLessThanOneStars()}">
-			   			 <button  title="Create Mission" class="btn btn-default" data-toggle="modal" data-target="#missionModal" ><i style="font-size:150%" class="fa fa-bullseye"></i></button>
+			   			 	<button  title="Create Mission" class="btn btn-default" data-toggle="modal" data-target="#missionModal" ><i style="font-size:150%" class="fa fa-bullseye"></i></button>
                          </g:if>
 
 
@@ -247,6 +248,39 @@
                               </g:form>
                             </div>
 
+                            <div class="modal fade" id="claimStars" tabindex="-1" role="dialog" aria-labelledby="claimStarsLabel" aria-hidden="false">
+                            	<g:form id="updateClaimTrophies" name="updateClaimTrophies" controller="trophy" action="claim">
+	                              <div class="modal-dialog">
+	                                <div class="modal-content">
+	                                  <div class="modal-header">
+	                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	                                    <h4 class="modal-title" id="myModalLabel">Claim Stars</h4>
+	                                  </div>
+	                                  <div class="modal-body" id="myBody" placeholder="Type @ for auto complete">
+                                        <textarea class="form-control" rows="7" placeholder="Type in your reason..." name="claimReason" id="claimReason"></textarea>
+	                                    <g:if test="${session.userInfo.isEligibleToGrantMoreOrLessThanOneStars()}">
+                                             <input type="text" class="form-control" placeholder="Type in no of stars..." name="claimTrophies" id="claimTrophies" value="0"/>
+                                        </g:if>
+                                        <g:else>
+                                             <input type="hidden" class="form-control" placeholder="Type in no of stars..." name="claimTrophies" id="claimTrophies" value="0"/>
+                                        </g:else>
+
+                                         <g:select id="claimBadgeId" name="claimBadgeId"
+                                                  noSelection="${['-1':'Select One Category...']}"
+                                                  from="${request.badges}"
+                                                  optionValue="badgeName"
+                                                  optionKey="id"
+                                                  onChange="updateClaimTrophiesFunction(${request.badges.id},${request.badges.starsAwarded});"/>
+	                                  </div>
+	                                  <div class="modal-footer">
+	                                    <button type="button" class="btn btn-default" data-dismiss="modal">Changed my mind</button>
+	                                    <g:submitButton name="update" class="btn btn-primary" value="Claim Stars" onclick="return isValidClaimInput();"/>
+
+	                                  </div>
+	                                </div>
+	                              </div>
+                              </g:form>
+                            </div>
 
                             <div class="modal fade" id="missionModal" tabindex="-1" role="dialog" aria-labelledby="missionModal" aria-hidden="false">
                             	<g:form id="createMission" name="createMission" controller="mission" action="create">
@@ -350,6 +384,38 @@
             document.getElementById("createMission").submit();
     }
 
+	function updateClaimTrophiesFunction(ids,values){
+
+		var claimBadgeID = document.getElementById("claimBadgeId").value;
+		var indexOfID=0;
+		for(;indexOfID<ids.length;indexOfID++){
+			if(ids[indexOfID] == claimBadgeID){
+				break;
+			}
+		}
+		document.getElementById("claimTrophies").value=values[indexOfID];
+	}
+	function isValidClaimInput(){
+        var reason =document.getElementById("claimReason").value;
+        var badgeId =document.getElementById("claimBadgeId").value;
+
+
+        if(reason.trim().length < 1) {
+            alert("Reason is mandatory.")
+            return false;
+        }
+        if(!isNumber(document.getElementById("claimTrophies").value)) {
+            window.alert("Number of Stars should be a valid number.")
+            return false;
+        }
+        if(badgeId == -1){
+            alert("Badge is mandatory.")
+            return false;
+        }
+
+        document.getElementById("updateClaimTrophies").submit();
+
+	}
     function isValidInput(){
 
         var emailIDContent =document.getElementById("toUserEmailID").value;
