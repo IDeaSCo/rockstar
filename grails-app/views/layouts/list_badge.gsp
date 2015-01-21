@@ -64,6 +64,10 @@
 
                                 <g:sortableColumn property="badgeIcon" title="${message(code: 'badge.badgeIcon.label', default: 'Badge Icon')}" />
 
+                                <g:sortableColumn property="description" title="${message(code: 'badge.description.label', default: 'Badge Description')}" />
+
+                                <g:sortableColumn property="starsAwarded" title="${message(code: 'badge.starsPerActivity.label', default: 'Stars Awarded')}" />
+
                                 <g:sortableColumn property="isEvil" title="${message(code: 'badge.isEvil.label', default: 'Is Evil')}" />
 
                                 <g:sortableColumn property="levelOnePoints" title="${message(code: 'badge.levelOnePoints.label', default: 'Bronze')}" />
@@ -81,6 +85,10 @@
                                 <td><g:link action="show" id="${badgeInstance?.id}">${fieldValue(bean: badgeInstance, field: "badgeName")}</g:link></td>
 
                                 <td>${fieldValue(bean: badgeInstance, field: "badgeIcon")}</td>
+
+                                <td>${fieldValue(bean: badgeInstance, field: "description")}</td>
+
+                                <td>${fieldValue(bean: badgeInstance, field: "starsAwarded")}</td>
 
                                 <td><g:formatBoolean boolean="${badgeInstance?.isEvil}" /></td>
 

@@ -59,6 +59,8 @@
                       <table class="table">
                         <tr><td><g:message code="badge.badgeName.label" default="Badge Name" /></td><td><g:fieldValue bean="${badgeInstance}" field="badgeName"/></td></tr>
                         <tr><td><g:message code="badge.badgeIcon.label" default="Badge Icon" /></td><td><g:fieldValue bean="${badgeInstance}" field="badgeIcon"/></td></tr>
+                        <tr><td><g:message code="badge.description.label" default="Badge Description" /></td><td><g:fieldValue bean="${badgeInstance}" field="description"/></td></tr>
+                        <tr><td><g:message code="badge.starsAwarded.label" default="Stars Awarded" /></td><td><g:fieldValue bean="${badgeInstance}" field="starsAwarded"/></td></tr>
                         <tr><td><g:message code="badge.isEvil.label" default="Is Evil" /></td><td><g:formatBoolean boolean="${badgeInstance?.isEvil}" /></td></tr>
                         <tr><td><g:message code="badge.levelOnePoints.label" default="Bronze" /></td>
                             <td>

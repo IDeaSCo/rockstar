@@ -9,6 +9,8 @@
       <table class="table">
         <tr><td><g:message code="badge.badgeName.label" default="Badge Name" /></td><td><g:textField name="badgeName" value="${badgeInstance?.badgeName}"/></td></tr>
         <tr><td><g:message code="badge.badgeIcon.label" default="Badge Icon" /></td><td><g:textField name="badgeIcon" value="${badgeInstance?.badgeIcon}"/></td></tr>
+        <tr><td><g:message code="badge.description.label" default="Badge Description" /></td><td><g:textField name="description" value="${badgeInstance?.description}"/></td></tr>
+        <tr><td><g:message code="badge.starsAwarded.label" default="Stars Awarded" /></td><td><g:textField name="starsAwarded" value="${badgeInstance?.starsAwarded}"/></td></tr>
         <tr><td><g:message code="badge.isEvil.label" default="Is Evil" /></td><td><g:checkBox name="isEvil" value="${badgeInstance?.isEvil}" /></td></tr>
         <tr><td><g:message code="badge.levelOnePoints.label" default="Bronze" /></td><td><g:field name="levelOnePoints" type="number" value="${badgeInstance?.levelOnePoints}" required=""/></td></tr>
         <tr><td><g:message code="badge.levelTwoPoints.label" default="Silver" /></td><td><g:field name="levelTwoPoints" type="number" value="${badgeInstance?.levelTwoPoints}" required=""/></td></tr>
