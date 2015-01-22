@@ -38,8 +38,15 @@ class TrophyService  {
         BadgeService badgeService = new BadgeService();
         badgeService.updateUserBadePoints(toUser,trophyDTO.badge,trophyDTO.getTrophies())
 
+        if(!fromUser.email.equals(toUser.email)) {
+            addAppreciatorBadge(fromUser, trophyDTO.getTrophies());
+        }
     }
 
+    def addAppreciatorBadge(User fromUser, int trophies){
+        BadgeService badgeService = new BadgeService();
+        badgeService.updateUserBadePoints(fromUser,Badge.findByBadgeName("Appreciator"),trophies)
+    }
     private void saveHistoryReason(TrophyReason reason, TrophyHistory history, TrophyDTO trophyDTO) {
         reason.setHistoryID(history)
         reason.setReason(trophyDTO.getReason())
