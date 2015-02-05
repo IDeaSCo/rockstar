@@ -2,6 +2,7 @@ package com.ideas.game
 
 class TrophyController {
     def dataSource
+    def grailsApplication
     def save = {
         def trophyService = new TrophyService(dataSource);
         println "============================"
@@ -64,7 +65,8 @@ class TrophyController {
             trophyDTO.reason = params.reason;
             trophyDTO.badge = Badge.findById(params.badgeId)
             trophyService.saveTrophies(trophyDTO)
-
+            EmailService emailService = new EmailService(grailsApplication);
+            emailService.sendMail(params.toUserEmailID, session.userInfo.getName()+ " gave you "+trophyDTO.trophies+" star(s) for badge "+ trophyDTO.badge.badgeName,trophyDTO.reason);
         }
         redirect(uri: "/user/profile")
     }
