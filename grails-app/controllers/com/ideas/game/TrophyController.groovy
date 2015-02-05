@@ -96,7 +96,7 @@ class TrophyController {
         trophyDTO.fromUserEmailID = session.userInfo.getEmail();
         trophyDTO.toUserEmailID = session.userInfo.getEmail();
         trophyDTO.trophies = trophies;
-        trophyDTO.reason = "Claiming Stars For:"+params.reason;
+        trophyDTO.reason = "Claiming Stars For:"+params.claimReason;
         trophyDTO.badge = badge;
         trophyService.saveTrophies(trophyDTO)
 
