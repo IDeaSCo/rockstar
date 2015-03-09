@@ -207,10 +207,10 @@
                                  </g:each>
 			   			 <footer class="profile-widget-foot">
 			   			 Appreciate someone today!
-			   			 <button class="btn btn-default" data-toggle="modal" data-target="#myModal" ><i style="font-size:150%" class="fa fa-thumbs-up"></i></button>
-			   			 <button title="Claim Stars" class="btn btn-default" data-toggle="modal" data-target="#claimStars" ><i style="font-size:150%" class="fa fa-copyright"></i></button>
+			   			 <button  class="btn btn-default" data-toggle="modal" data-target="#myModal" ><i style="font-size:150%" class="fa fa-thumbs-up"></i></button>
+			   			 <button  title="Claim Stars" class="btn btn-default" data-toggle="modal" data-target="#claimStars" ><i style="font-size:150%" class="fa fa-copyright"></i></button>
 			   			 <g:if test="${session.userInfo.isEligibleToGrantMoreOrLessThanOneStars()}">
-			   			 	<button  title="Create Mission" class="btn btn-default" data-toggle="modal" data-target="#missionModal" ><i style="font-size:150%" class="fa fa-bullseye"></i></button>
+			   			 	<button   title="Create Mission" class="btn btn-default" data-toggle="modal" data-target="#missionModal" ><i style="font-size:150%" class="fa fa-bullseye"></i></button>
                          </g:if>
 
 
@@ -240,7 +240,7 @@
 	                                  </div>
 	                                  <div class="modal-footer">
 	                                    <button type="button" class="btn btn-default" data-dismiss="modal">Changed my mind</button>
-	                                    <g:submitButton name="update" class="btn btn-primary" value="Send Appreciation" onclick="return isValidInput();"/>
+	                                    <g:submitButton id="button_send_appreciation" name="update" class="btn btn-primary" value="Send Appreciation" onclick="return isValidInput();"/>
 
 	                                  </div>
 	                                </div>
@@ -274,7 +274,7 @@
 	                                  </div>
 	                                  <div class="modal-footer">
 	                                    <button type="button" class="btn btn-default" data-dismiss="modal">Changed my mind</button>
-	                                    <g:submitButton name="update" class="btn btn-primary" value="Claim Stars" onclick="return isValidClaimInput();"/>
+	                                    <g:submitButton id="button_claim_stars" name="update" class="btn btn-primary" value="Claim Stars" onclick="return isValidClaimInput();"/>
 
 	                                  </div>
 	                                </div>
@@ -298,7 +298,7 @@
 	                                  </div>
 	                                  <div class="modal-footer">
 	                                    <button type="button" class="btn btn-default" data-dismiss="modal">Changed my mind</button>
-	                                    <g:submitButton name="update" class="btn btn-primary" value="Create Mission" onclick="return isValidMissionInput();"/>
+	                                    <g:submitButton id="button_create_mission" name="update" class="btn btn-primary" value="Create Mission" onclick="return isValidMissionInput();"/>
 
 	                                  </div>
 	                                </div>
@@ -369,6 +369,8 @@
   <script>
     function isValidMissionInput(){
 
+	    
+
             var missionStatement =document.getElementById("missionStatement").value;
 
 
@@ -380,7 +382,7 @@
                 window.alert("Number of Stars on Offer should be a valid positive number.")
                 return false;
             }
-
+	    document.getElementById("button_create_mission").disabled = true;
             document.getElementById("createMission").submit();
     }
 
@@ -396,6 +398,7 @@
 		document.getElementById("claimTrophies").value=values[indexOfID];
 	}
 	function isValidClaimInput(){
+	
         var reason =document.getElementById("claimReason").value;
         var badgeId =document.getElementById("claimBadgeId").value;
 
@@ -413,6 +416,7 @@
             return false;
         }
 
+        document.getElementById("button_claim_stars").disabled = true;
         document.getElementById("updateClaimTrophies").submit();
 
 	}
@@ -440,7 +444,7 @@
             alert("Badge is mandatory.")
             return false;
         }
-
+	document.getElementById("button_send_appreciation").disabled = true;
         document.getElementById("updateTrophies").submit();
 
     }
