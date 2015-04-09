@@ -30,6 +30,7 @@ class AddUserToSessionFilters {
 
                                 }catch(Exception e){
                                     println("Could not query active directory for user:"+request.getRemoteUser());
+                                    e.printStackTrace();
                                 }
                             }
                             session.userInfo = user;
