@@ -1,0 +1,109 @@
+buildscript {
+    ext {
+        grailsVersion = project.grailsVersion
+    }
+    repositories {
+        mavenLocal()
+        maven { url "https://repo.grails.org/grails/core" }
+    }
+    dependencies {
+        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+        classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.1.1'
+    }
+}
+
+plugins {
+    id "io.spring.dependency-management" version "0.5.2.RELEASE"
+}
+
+version "0.1"
+group "rockstar"
+
+apply plugin: "spring-boot"
+apply plugin: "war"
+apply plugin: "asset-pipeline"
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: "org.grails.grails-web"
+apply plugin: "org.grails.grails-gsp"
+
+ext {
+    grailsVersion = project.grailsVersion
+    gradleWrapperVersion = project.gradleWrapperVersion
+}
+
+assets {
+    minifyJs = true
+    minifyCss = true
+}
+
+repositories {
+    mavenLocal()
+    flatDir {
+        dirs 'lib'
+    }
+
+    maven { url "https://repo.grails.org/grails/core" }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.grails:grails-bom:$grailsVersion"
+    }
+    applyMavenExclusions false
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-logging"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.springframework.boot:spring-boot-starter-tomcat"
+    compile "org.springframework.security:spring-security-web"
+
+    compile "org.grails:grails-dependencies"
+    compile "org.grails:grails-web-boot"
+
+
+    compile "org.grails.plugins:hibernate"
+    compile "org.grails.plugins:cache"
+    compile "org.hibernate:hibernate-ehcache"
+    compile "org.grails.plugins:scaffolding"
+    compile "commons-email:commons-email:1.1"
+
+    compile files('lib/active-directory-1.0.jar')
+    compile files('lib/ado20-1.0.jar')
+    compile files('lib/com4j.jar')
+    compile files('lib/mysql-connector-java-5.1.34-bin.jar')
+    compile files('lib/commons-logging-1.1.1.jar')
+    compile files('lib/jcl-over-slf4j-1.7.12.jar')
+    compile files('lib/jna-4.1.0.jar')
+    compile files('lib/jna-platform-4.1.0.jar')
+    compile files('lib/slf4j-api-1.7.12.jar')
+    compile files('lib/waffle-jna-1.7.4.jar')    
+    runtime files('lib/log4j-1.2.16.jar')
+    runtime files('lib/waffle-tomcat8-1.7.4.jar')
+    runtime files('lib/platform-3.5.0.jar')
+
+
+
+
+    runtime "org.grails.plugins:asset-pipeline"
+    
+
+    testCompile "org.grails:grails-plugin-testing"
+    testCompile "org.grails.plugins:geb"
+
+
+    console "org.grails:grails-console"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = gradleWrapperVersion
+}
+
+war {
+    from('lib') {
+        include 'com4j-amd64.dll'
+        into('WEB-INF\\lib')
+    }
+}

@@ -1,17 +1,19 @@
 package com.ideas.game
 
+import grails.core.GrailsApplication
 import org.apache.commons.mail.SimpleEmail;
 
 
 class EmailService {
-    def grailsApplication
 
-    public EmailService(def grailsApplication){
+    GrailsApplication grailsApplication
+
+    public EmailService(GrailsApplication grailsApplication){
         this.grailsApplication=grailsApplication;
     }
     def sendMail(String toEmail, String subject, String body){
         SimpleEmail email = new SimpleEmail()
-        email.setHostName(grailsApplication.config.grails.mail.host)
+        email.setHostName(grailsApplication.config.getProperty('email.host'));
         email.addTo(toEmail)
         email.setFrom("notification@ideasrockstar.com")
         email.setSubject(subject)

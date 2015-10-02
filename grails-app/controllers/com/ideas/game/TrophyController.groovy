@@ -1,8 +1,12 @@
 package com.ideas.game
 
+import grails.core.GrailsApplication
+
 class TrophyController {
     def dataSource
-    def grailsApplication
+
+    GrailsApplication grailsApplication
+
     def save = {
         def trophyService = new TrophyService(dataSource);
         println "============================"

@@ -1,0 +1,12 @@
+dataSource:
+    pooled: true
+    jmxExport: true
+    driverClassName: "com.mysql.jdbc.Driver"
+    username: admin
+    password: admin
+
+environments:
+    test:
+        dataSource:
+            dbCreate: update
+            url: jdbc:mysql://localhost:3309/game?autoReconnect=true

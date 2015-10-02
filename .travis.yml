@@ -1,8 +1,11 @@
 language: groovy
+
 jdk:
 - oraclejdk7
+
 env:
-- GRAILS_VERSION=2.2.4
+- GRAILS_VERSION=3.0.6
+
 before_install:
 - rm -rf ~/.gvm
 - curl -s get.gvmtool.net > ~/install_gvm.sh
@@ -11,13 +14,13 @@ before_install:
 - echo "gvm_auto_answer=true" > ~/.gvm/etc/config
 - source ~/.gvm/bin/gvm-init.sh
 - gvm install grails $GRAILS_VERSION || true
-script: grails refresh-dependencies && grails clean && grails upgrade --non-interactive
-  && grails war --non-interactive
+
+script: grails refresh-dependencies && grails clean && grails upgrade --non-interactive && grails war --non-interactive
+
 deploy:
   provider: releases
-  api_key:
-    secure: eWioKs43356NdeoKm3DeOhP9eqslkPtKX2uf2mnEul5A+BaPvDtPakIMdidzbpdesVNd5rbTyESoeOovsCvSpDmLz7cXU2j9YmR9M+aBoeCV2gjZTH5MynFSrxWCTx+IGDFnK94JaRgESI1yZsPDqqcnQf0rc0ihEGMpz1NHi5c=
-  file: "target/rockstar-1.0.0.war"
+  api-key: "15116853a7ec2b2ba04f9ee612f05941ee9b36d4"
+  file: "target/rockstar-1.0.2.war"
   skip_cleanup: true
   on:
     tags: true

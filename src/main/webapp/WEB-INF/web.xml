@@ -1,0 +1,71 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" metadata-complete="true" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<display-name>/IDeaS Rock Stars</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>IDeaS Rock Stars</param-value>
+	</context-param>
+	<context-param>
+		<param-name>sample</param-name>
+		<param-value>Sample Value</param-value>
+	</context-param>
+
+	  <filter>
+	    <filter-name>SecurityFilter</filter-name>
+	    <filter-class>waffle.servlet.NegotiateSecurityFilter</filter-class>   
+	    <init-param>
+		<param-name>principalFormat</param-name>
+		<param-value>fqn</param-value>
+	    </init-param>
+	    <init-param>
+		<param-name>roleFormat</param-name>
+		<param-value>both</param-value>
+	    </init-param>
+	    <init-param>
+		<param-name>allowGuestLogin</param-name>
+		<param-value>true</param-value>
+	    </init-param>
+	    <init-param>
+		<param-name>securityFilterProviders</param-name>
+		<param-value>
+			waffle.servlet.spi.NegotiateSecurityFilterProvider
+			waffle.servlet.spi.BasicSecurityFilterProvider
+		</param-value>
+	    </init-param>
+	    <init-param>
+		<param-name>waffle.servlet.spi.NegotiateSecurityFilterProvider/protocols</param-name>
+		<param-value>
+			Negotiate
+			NTLM
+		</param-value>
+	    </init-param>
+	    <init-param>    
+		<param-name>waffle.servlet.spi.BasicSecurityFilterProvider/realm</param-name>
+		<param-value>WaffleFilterDemo</param-value>
+	    </init-param>
+	  </filter>
+	  <filter-mapping>
+	    <filter-name>SecurityFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	  </filter-mapping>    
+
+	  <!-- System Information Helpful for debugging -->
+	  <servlet>
+	    <servlet-name>WaffleInfo</servlet-name>
+	    <servlet-class>waffle.servlet.WaffleInfoServlet</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>WaffleInfo</servlet-name>
+	    <url-pattern>/waffle</url-pattern>
+	  </servlet-mapping>
+
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+
+</web-app>

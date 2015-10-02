@@ -6,13 +6,13 @@ class MissionController {
         def missionService = new MissionService(dataSource);
         String selfEmailID=session.userInfo.email.toLowerCase();
         missionService.createMission(params,selfEmailID)
-        redirect(uri: "/index")
+        redirect(uri: "/user/profile")
 
     }
 
     def close = {
         def missionService = new MissionService(dataSource);
         missionService.closeMission(params.missionID);
-        redirect(uri: "/index")
+        redirect(uri: "/user/profile")
     }
 }
