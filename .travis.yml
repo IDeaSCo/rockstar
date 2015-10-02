@@ -9,6 +9,9 @@ env:
   - GRADLE_OPTS="-Xmx768m -Xms256m -XX:MaxPermSize=372m -XX:+CMSClassUnloadingEnabled"
 jdk:
   - oraclejdk8
+before_install:
+- chmod 775 ./gradlew
+
 script: ./gradlew check assemble --refresh-dependencies -Dgrails.env=prod
 after_failure: ./travis/junit-errors-to-stdout.sh
 
