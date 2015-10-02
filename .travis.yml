@@ -1,23 +1,16 @@
+sudo: false
+cache:
+  directories:
+  - $HOME/.gradle/wrapper
 language: groovy
-
-jdk:
-- oraclejdk8
-
 env:
-- GRAILS_VERSION=3.0.6
-
-before_install:
-- rm -rf ~/.gvm
-- curl -s get.gvmtool.net > ~/install_gvm.sh
-- chmod 775 ~/install_gvm.sh
-- ~/install_gvm.sh
-- mkdir ~/.gvm
-- mkdir ~/.gvm/etc
-- echo "gvm_auto_answer=true" > ~/.gvm/etc/config
-- source ~/.gvm/bin/gvm-init.sh
-- gvm install grails $GRAILS_VERSION || true
-
-script: grails refresh-dependencies && grails clean && grails upgrade --non-interactive && grails war --non-interactive
+  global:
+  - TERM=dumb
+  - GRADLE_OPTS="-Xmx768m -Xms256m -XX:MaxPermSize=372m -XX:+CMSClassUnloadingEnabled"
+jdk:
+  - oraclejdk8
+script: ./gradlew check assemble --refresh-dependencies -Dgrails.env=prod
+after_failure: ./travis/junit-errors-to-stdout.sh
 
 deploy:
   provider: releases
