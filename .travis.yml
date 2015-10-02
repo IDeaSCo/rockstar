@@ -19,7 +19,7 @@ after_failure: ./travis/junit-errors-to-stdout.sh
 deploy:
   provider: releases
   api-key:
-  	- secure= hRCMn9QCDVOvdkc6fhIr97itAvb02cB86hVjAAScDQDlH9i0ru+xTCsVcLsMQ1Db7a1dWFj28qnyvz+kqqevAr8W29ADaD2BVsMfCtO6LALMtyfTgPNXw0RHqQu4+LVj148mXwtsbefLhAB1aanKb8Wf1L/wguQBCqVN65V+58c=
+  	- secure= "hRCMn9QCDVOvdkc6fhIr97itAvb02cB86hVjAAScDQDlH9i0ru+xTCsVcLsMQ1Db7a1dWFj28qnyvz+kqqevAr8W29ADaD2BVsMfCtO6LALMtyfTgPNXw0RHqQu4+LVj148mXwtsbefLhAB1aanKb8Wf1L/wguQBCqVN65V+58c="
   file: "build/libs/rockstar-1.0.2.war"
   skip_cleanup: true
   on:
