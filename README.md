@@ -6,12 +6,12 @@ This application makes use of Gamification techniques for Team Engagement and Te
 [![Build Status](https://travis-ci.org/IDeaSCo/rockstar.svg?branch=master)](https://travis-ci.org/IDeaSCo/rockstar)
 
 ####Build Requirements
-- Grails 2.2.4
+- Grails 3.0.6
 
 ####Deployment Requirements
-- Tomcat 7.0
+- Tomcat 8.0.26
 - MySQL 5.5
-- Java 1.7
+- Java 1.8.0_40
 - [Gravatar](https://en.gravatar.com/) profile image.
 - Windows Server with Active Directory Authentication
   - This application queries following fields from Active Directory
@@ -30,12 +30,13 @@ This application makes use of Gamification techniques for Team Engagement and Te
     - thumbnailPhoto
     - thumbnailLogo
 
-####Configuration
- - star-config.properties 
+####Externalized Configuration
+ - application-production.yml 
   - dataSource.driverClassName=com.mysql.jdbc.Driver
   - dataSource.url=jdbc:mysql://localhost:3309/game?autoReconnect=true
   - dataSource.username=admin
   - dataSource.password=admin
+  - email.host=your.email.server.com
 - The application exposes REST API `<BASE_APP_URL>`/trophy/save for bots to credit stars.
   - iplookup tables should contain the list of emailIDs and IP addresses from where legitimate bots can credit stars.
   - sample REST message
