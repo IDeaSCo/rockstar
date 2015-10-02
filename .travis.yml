@@ -7,6 +7,7 @@ env:
   global:
   - TERM=dumb
   - GRADLE_OPTS="-Xmx768m -Xms256m -XX:MaxPermSize=372m -XX:+CMSClassUnloadingEnabled"
+  - secure= hRCMn9QCDVOvdkc6fhIr97itAvb02cB86hVjAAScDQDlH9i0ru+xTCsVcLsMQ1Db7a1dWFj28qnyvz+kqqevAr8W29ADaD2BVsMfCtO6LALMtyfTgPNXw0RHqQu4+LVj148mXwtsbefLhAB1aanKb8Wf1L/wguQBCqVN65V+58c=
 jdk:
   - oraclejdk8
 before_install:
@@ -17,8 +18,7 @@ after_failure: ./travis/junit-errors-to-stdout.sh
 
 deploy:
   provider: releases
-  api-key: "758eb2b3101b1c01ed4e4263413227413b3dd120"
-  file: "target/rockstar-1.0.2.war"
+  file: "build/libs/rockstar-1.0.2.war"
   skip_cleanup: true
   on:
     tags: true
